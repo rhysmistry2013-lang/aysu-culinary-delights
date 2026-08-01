@@ -51,19 +51,21 @@ export function SiteFooter() {
         <div>
           <h2 className="eyebrow">Explore</h2>
           <ul className="mt-4 space-y-2 text-sm text-forest-foreground/75">
-            {[
-              ["/menu", "Menus"],
-              ["/order", "Order takeaway"],
-              ["/book", "Book a table"],
-              ["/gift-vouchers", "Gift vouchers"],
-              ["/loyalty", "Loyalty programme"],
-              ["/careers", "Careers"],
-              ["/faq", "FAQ"],
-              ["/contact", "Contact"],
-              ["/privacy", "Privacy Policy"],
-              ["/cookies", "Cookie Policy"],
-              ["/terms", "Terms & Conditions"],
-            ].map(([to, label]) => (
+            {(
+              [
+                { to: "/menu", label: "Menus" },
+                { to: "/order", label: "Order takeaway" },
+                { to: "/book", label: "Book a table" },
+                { to: "/gift-vouchers", label: "Gift vouchers" },
+                { to: "/loyalty", label: "Loyalty programme" },
+                { to: "/careers", label: "Careers" },
+                { to: "/faq", label: "FAQ" },
+                { to: "/contact", label: "Contact" },
+                { to: "/privacy", label: "Privacy Policy" },
+                { to: "/cookies", label: "Cookie Policy" },
+                { to: "/terms", label: "Terms & Conditions" },
+              ] as const
+            ).map(({ to, label }) => (
               <li key={to}>
                 <Link to={to} className="hover:text-gold">
                   {label}
