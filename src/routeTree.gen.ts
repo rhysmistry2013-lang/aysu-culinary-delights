@@ -10,33 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LocationsRouteImport } from './routes/locations'
+import { Route as MenuRouteImport } from './routes/menu'
+import { Route as BranchesSlugRouteImport } from './routes/branches.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocationsRoute = LocationsRouteImport.update({
+  id: '/locations',
+  path: '/locations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MenuRoute = MenuRouteImport.update({
+  id: '/menu',
+  path: '/menu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BranchesSlugRoute = BranchesSlugRouteImport.update({
+  id: '/branches/$slug',
+  path: '/branches/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/locations': typeof LocationsRoute
+  '/menu': typeof MenuRoute
+  '/branches/$slug': typeof BranchesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/locations': typeof LocationsRoute
+  '/menu': typeof MenuRoute
+  '/branches/$slug': typeof BranchesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/locations': typeof LocationsRoute
+  '/menu': typeof MenuRoute
+  '/branches/$slug': typeof BranchesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/locations' | '/menu' | '/branches/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/locations' | '/menu' | '/branches/$slug'
+  id: '__root__' | '/' | '/locations' | '/menu' | '/branches/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LocationsRoute: typeof LocationsRoute
+  MenuRoute: typeof MenuRoute
+  BranchesSlugRoute: typeof BranchesSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +78,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/locations': {
+      id: '/locations'
+      path: '/locations'
+      fullPath: '/locations'
+      preLoaderRoute: typeof LocationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/menu': {
+      id: '/menu'
+      path: '/menu'
+      fullPath: '/menu'
+      preLoaderRoute: typeof MenuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/branches/$slug': {
+      id: '/branches/$slug'
+      path: '/branches/$slug'
+      fullPath: '/branches/$slug'
+      preLoaderRoute: typeof BranchesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LocationsRoute: LocationsRoute,
+  MenuRoute: MenuRoute,
+  BranchesSlugRoute: BranchesSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

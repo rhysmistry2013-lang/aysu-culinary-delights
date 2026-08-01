@@ -7,7 +7,14 @@ import mezze from "@/assets/dish-mezze.jpg";
 import iskender from "@/assets/dish-iskender.jpg";
 import dessert from "@/assets/dessert.jpg";
 import { Reveal } from "@/components/reveal";
-import { branches, getBranch, mapsDirectionsUrl, mapsEmbedUrl, telHref } from "@/data/branches";
+import {
+  branches,
+  getBranch,
+  mapsDirectionsUrl,
+  mapsEmbedUrl,
+  telHref,
+  type Branch,
+} from "@/data/branches";
 
 export const Route = createFileRoute("/branches/$slug")({
   loader: ({ params }) => {
@@ -56,7 +63,8 @@ const photos = [
 ];
 
 function BranchPage() {
-  const { branch: b } = Route.useLoaderData();
+  const { branch } = Route.useLoaderData();
+  const b = branch as Branch;
 
   const jsonLd = {
     "@context": "https://schema.org",
