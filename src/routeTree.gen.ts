@@ -11,9 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BookRouteImport } from './routes/book'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CookiesRouteImport } from './routes/cookies'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as GiftVouchersRouteImport } from './routes/gift-vouchers'
 import { Route as LocationsRouteImport } from './routes/locations'
+import { Route as LoyaltyRouteImport } from './routes/loyalty'
 import { Route as MenuRouteImport } from './routes/menu'
 import { Route as OrderRouteImport } from './routes/order'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -30,9 +35,24 @@ const BookRoute = BookRouteImport.update({
   path: '/book',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CookiesRoute = CookiesRouteImport.update({
   id: '/cookies',
   path: '/cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -40,9 +60,19 @@ const GalleryRoute = GalleryRouteImport.update({
   path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GiftVouchersRoute = GiftVouchersRouteImport.update({
+  id: '/gift-vouchers',
+  path: '/gift-vouchers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocationsRoute = LocationsRouteImport.update({
   id: '/locations',
   path: '/locations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoyaltyRoute = LoyaltyRouteImport.update({
+  id: '/loyalty',
+  path: '/loyalty',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MenuRoute = MenuRouteImport.update({
@@ -74,9 +104,14 @@ const BranchesSlugRoute = BranchesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/book': typeof BookRoute
+  '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
+  '/gift-vouchers': typeof GiftVouchersRoute
   '/locations': typeof LocationsRoute
+  '/loyalty': typeof LoyaltyRoute
   '/menu': typeof MenuRoute
   '/order': typeof OrderRoute
   '/privacy': typeof PrivacyRoute
@@ -86,9 +121,14 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/book': typeof BookRoute
+  '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
+  '/gift-vouchers': typeof GiftVouchersRoute
   '/locations': typeof LocationsRoute
+  '/loyalty': typeof LoyaltyRoute
   '/menu': typeof MenuRoute
   '/order': typeof OrderRoute
   '/privacy': typeof PrivacyRoute
@@ -99,9 +139,14 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/book': typeof BookRoute
+  '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
+  '/gift-vouchers': typeof GiftVouchersRoute
   '/locations': typeof LocationsRoute
+  '/loyalty': typeof LoyaltyRoute
   '/menu': typeof MenuRoute
   '/order': typeof OrderRoute
   '/privacy': typeof PrivacyRoute
@@ -113,9 +158,14 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/book'
+    | '/careers'
+    | '/contact'
     | '/cookies'
+    | '/faq'
     | '/gallery'
+    | '/gift-vouchers'
     | '/locations'
+    | '/loyalty'
     | '/menu'
     | '/order'
     | '/privacy'
@@ -125,9 +175,14 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/book'
+    | '/careers'
+    | '/contact'
     | '/cookies'
+    | '/faq'
     | '/gallery'
+    | '/gift-vouchers'
     | '/locations'
+    | '/loyalty'
     | '/menu'
     | '/order'
     | '/privacy'
@@ -137,9 +192,14 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/book'
+    | '/careers'
+    | '/contact'
     | '/cookies'
+    | '/faq'
     | '/gallery'
+    | '/gift-vouchers'
     | '/locations'
+    | '/loyalty'
     | '/menu'
     | '/order'
     | '/privacy'
@@ -150,9 +210,14 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BookRoute: typeof BookRoute
+  CareersRoute: typeof CareersRoute
+  ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
+  FaqRoute: typeof FaqRoute
   GalleryRoute: typeof GalleryRoute
+  GiftVouchersRoute: typeof GiftVouchersRoute
   LocationsRoute: typeof LocationsRoute
+  LoyaltyRoute: typeof LoyaltyRoute
   MenuRoute: typeof MenuRoute
   OrderRoute: typeof OrderRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -176,11 +241,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cookies': {
       id: '/cookies'
       path: '/cookies'
       fullPath: '/cookies'
       preLoaderRoute: typeof CookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -190,11 +276,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gift-vouchers': {
+      id: '/gift-vouchers'
+      path: '/gift-vouchers'
+      fullPath: '/gift-vouchers'
+      preLoaderRoute: typeof GiftVouchersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/locations': {
       id: '/locations'
       path: '/locations'
       fullPath: '/locations'
       preLoaderRoute: typeof LocationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/loyalty': {
+      id: '/loyalty'
+      path: '/loyalty'
+      fullPath: '/loyalty'
+      preLoaderRoute: typeof LoyaltyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/menu': {
@@ -238,9 +338,14 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BookRoute: BookRoute,
+  CareersRoute: CareersRoute,
+  ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
+  FaqRoute: FaqRoute,
   GalleryRoute: GalleryRoute,
+  GiftVouchersRoute: GiftVouchersRoute,
   LocationsRoute: LocationsRoute,
+  LoyaltyRoute: LoyaltyRoute,
   MenuRoute: MenuRoute,
   OrderRoute: OrderRoute,
   PrivacyRoute: PrivacyRoute,

@@ -23,7 +23,7 @@ export const Route = createFileRoute("/faq")({
   component: FaqPage,
 });
 
-const faqs = [
+const faqs: [string, string][] = [
   ["Do you cater for allergies?", "Yes — tell your server before ordering. Our kitchens handle nuts, gluten, sesame, dairy, egg and shellfish, so we cannot guarantee an allergen-free dish, but we will always advise honestly."],
   ["Is your meat halal?", "Yes. All meat served at Aysu is halal, as shown on our menu."],
   ["Which areas do you deliver to?", "Placeholder — delivery radius to be confirmed for each branch. Collection is available at both restaurants."],
