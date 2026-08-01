@@ -11,10 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BookRouteImport } from './routes/book'
+import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as LocationsRouteImport } from './routes/locations'
 import { Route as MenuRouteImport } from './routes/menu'
 import { Route as OrderRouteImport } from './routes/order'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as BranchesSlugRouteImport } from './routes/branches.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -25,6 +28,11 @@ const IndexRoute = IndexRouteImport.update({
 const BookRoute = BookRouteImport.update({
   id: '/book',
   path: '/book',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -47,6 +55,16 @@ const OrderRoute = OrderRouteImport.update({
   path: '/order',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BranchesSlugRoute = BranchesSlugRouteImport.update({
   id: '/branches/$slug',
   path: '/branches/$slug',
@@ -56,29 +74,38 @@ const BranchesSlugRoute = BranchesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/book': typeof BookRoute
+  '/cookies': typeof CookiesRoute
   '/gallery': typeof GalleryRoute
   '/locations': typeof LocationsRoute
   '/menu': typeof MenuRoute
   '/order': typeof OrderRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/branches/$slug': typeof BranchesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/book': typeof BookRoute
+  '/cookies': typeof CookiesRoute
   '/gallery': typeof GalleryRoute
   '/locations': typeof LocationsRoute
   '/menu': typeof MenuRoute
   '/order': typeof OrderRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/branches/$slug': typeof BranchesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/book': typeof BookRoute
+  '/cookies': typeof CookiesRoute
   '/gallery': typeof GalleryRoute
   '/locations': typeof LocationsRoute
   '/menu': typeof MenuRoute
   '/order': typeof OrderRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/branches/$slug': typeof BranchesSlugRoute
 }
 export interface FileRouteTypes {
@@ -86,38 +113,50 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/book'
+    | '/cookies'
     | '/gallery'
     | '/locations'
     | '/menu'
     | '/order'
+    | '/privacy'
+    | '/terms'
     | '/branches/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/book'
+    | '/cookies'
     | '/gallery'
     | '/locations'
     | '/menu'
     | '/order'
+    | '/privacy'
+    | '/terms'
     | '/branches/$slug'
   id:
     | '__root__'
     | '/'
     | '/book'
+    | '/cookies'
     | '/gallery'
     | '/locations'
     | '/menu'
     | '/order'
+    | '/privacy'
+    | '/terms'
     | '/branches/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BookRoute: typeof BookRoute
+  CookiesRoute: typeof CookiesRoute
   GalleryRoute: typeof GalleryRoute
   LocationsRoute: typeof LocationsRoute
   MenuRoute: typeof MenuRoute
   OrderRoute: typeof OrderRoute
+  PrivacyRoute: typeof PrivacyRoute
+  TermsRoute: typeof TermsRoute
   BranchesSlugRoute: typeof BranchesSlugRoute
 }
 
@@ -135,6 +174,13 @@ declare module '@tanstack/react-router' {
       path: '/book'
       fullPath: '/book'
       preLoaderRoute: typeof BookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -165,6 +211,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OrderRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/branches/$slug': {
       id: '/branches/$slug'
       path: '/branches/$slug'
@@ -178,10 +238,13 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BookRoute: BookRoute,
+  CookiesRoute: CookiesRoute,
   GalleryRoute: GalleryRoute,
   LocationsRoute: LocationsRoute,
   MenuRoute: MenuRoute,
   OrderRoute: OrderRoute,
+  PrivacyRoute: PrivacyRoute,
+  TermsRoute: TermsRoute,
   BranchesSlugRoute: BranchesSlugRoute,
 }
 export const routeTree = rootRouteImport
