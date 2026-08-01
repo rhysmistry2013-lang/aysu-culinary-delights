@@ -38,9 +38,9 @@ function BookPage() {
         <CheckCircle2 className="mx-auto h-12 w-12 text-gold" aria-hidden="true" />
         <h1 className="mt-6 text-4xl">Booking request received</h1>
         <p className="mt-4 text-muted-foreground">
-          Thank you, {confirmed.name}. We've noted a table for {confirmed.guests} at{" "}
-          {confirmed.branch} on {confirmed.date} at {confirmed.time}. A member of the team will call
-          you on {confirmed.phone} to confirm.
+          Thank you, {confirmed["name"]}. We've noted a table for {confirmed["guests"]} at{" "}
+          {confirmed["branch"]} on {confirmed["date"]} at {confirmed["time"]}. A member of the team
+          will call you on {confirmed["phone"]} to confirm.
         </p>
         <p className="mt-6 text-xs italic text-muted-foreground">
           This demo confirmation is stored in your browser only. Connect a backend to save
