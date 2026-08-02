@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import hero from "@/assets/hero-spread.jpg";
 import interior from "@/assets/interior.jpg";
 import { photos } from "@/assets/photos";
 import { Reveal } from "@/components/reveal";
