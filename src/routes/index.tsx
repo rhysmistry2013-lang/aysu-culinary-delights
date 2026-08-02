@@ -11,7 +11,7 @@ import { gbp } from "@/lib/format";
 
 const title = "Aysu Restaurants | Authentic Turkish Dining in London";
 const description =
-  "Charcoal-grilled kebabs, fresh photos.hummus and all-day Turkish breakfast at Aysu in Queensbury and Harrow. Book a table, order takeaway or find your nearest branch.";
+  "Charcoal-grilled kebabs, fresh mezze and all-day Turkish breakfast at Aysu in Queensbury and Harrow. Book a table, order takeaway or find your nearest branch.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
 });
 
 const featured = [
-  { name: "Mix Grill", price: 21.5, image: photos.smallLambShish, blurb: "Lamb photos.smallLambShish, chicken photos.smallLambShish and lamb kofte from the charcoal grill." },
+  { name: "Mix Grill", price: 21.5, image: photos.smallLambShish, blurb: "Lamb shish, chicken shish and lamb kofte from the charcoal grill." },
   { name: "İskender", price: 15.5, image: photos.kebabPlatter, blurb: "Doner on warm bread with yoghurt and tomato butter sauce." },
   { name: "Mix Cold Starter", price: 14.5, image: photos.hummus, blurb: "Hummus, cacık, potato salad, tarama and aubergine salad." },
   { name: "Baklava & Çay", image: photos.kanafeh, blurb: "Pistachio baklava with Turkish tea. Price to be confirmed." },
@@ -54,10 +54,10 @@ const reviews = [
 ];
 
 const gallery = [
-  { src: hero, alt: "Turkish sharing spread with grilled meats, photos.hummus and bread" },
+  { src: hero, alt: "Turkish sharing spread with grilled meats, mezze and bread" },
   { src: interior, alt: "Aysu dining room with green velvet banquettes and gold lighting" },
-  { src: photos.smallLambShish, alt: "Lamb photos.smallLambShish skewer with bulgur rice" },
-  { src: photos.hummus, alt: "Cold photos.hummus platter with hummus and flatbread" },
+  { src: photos.smallLambShish, alt: "Lamb shish skewer with bulgur rice" },
+  { src: photos.hummus, alt: "Cold mezze platter with hummus and flatbread" },
   { src: photos.kebabPlatter, alt: "İskender kebab with yoghurt and tomato butter sauce" },
   { src: photos.kanafeh, alt: "Baklava and Turkish tea on a gold plate" },
 ];
@@ -88,7 +88,7 @@ function Index() {
       <section className="relative isolate flex min-h-[92dvh] items-center justify-center overflow-hidden bg-forest-deep">
         <img
           src={hero}
-          alt="Turkish charcoal grill and photos.hummus sharing spread at Aysu"
+          alt="Turkish charcoal grill and mezze sharing spread at Aysu"
           width={1920}
           height={1280}
           className="absolute inset-0 -z-10 h-full w-full object-cover opacity-60"
@@ -159,7 +159,7 @@ function Index() {
               align="left"
               eyebrow="Our story"
               title="A family table, set in North West London"
-              intro="Aysu began with a simple idea: cook the food we grew up with, exactly as it should be. Charcoal grills lit every morning, dough proved on site, photos.hummus made fresh through the day."
+              intro="Aysu began with a simple idea: cook the food we grew up with, exactly as it should be. Charcoal grills lit every morning, dough proved on site, mezze made fresh through the day."
             />
             <dl className="mt-8 grid gap-6 sm:grid-cols-2">
               {[

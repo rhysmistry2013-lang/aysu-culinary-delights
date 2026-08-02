@@ -53,8 +53,8 @@ function BranchNotFound() {
 
 const photos = [
   { src: interior, alt: "Dining room interior" },
-  { src: photos.smallLambShish, alt: "Lamb photos.smallLambShish from the charcoal grill" },
-  { src: photos.hummus, alt: "Cold photos.hummus platter" },
+  { src: photos.smallLambShish, alt: "Lamb shish from the charcoal grill" },
+  { src: photos.hummus, alt: "Cold mezze platter" },
   { src: photos.kebabPlatter, alt: "İskender kebab" },
   { src: photos.kanafeh, alt: "Baklava and Turkish tea" },
 ];
