@@ -1,10 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import hero from "@/assets/hero-spread.jpg";
 import interior from "@/assets/interior.jpg";
-import shish from "@/assets/dish-lamb-shish.jpg";
-import mezze from "@/assets/dish-mezze.jpg";
-import iskender from "@/assets/dish-iskender.jpg";
-import dessert from "@/assets/dessert.jpg";
+import { photos } from "@/assets/photos";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
@@ -26,29 +23,38 @@ export const Route = createFileRoute("/gallery")({
 
 const groups = [
   {
-    heading: "Food",
+    heading: "From the charcoal grill",
     items: [
-      { src: hero, alt: "Turkish sharing spread of grilled meats, mezze and bread" },
-      { src: shish, alt: "Lamb shish skewer with bulgur rice and grilled tomato" },
-      { src: iskender, alt: "İskender kebab with yoghurt and tomato butter sauce" },
+      { src: photos.mixedGrill, alt: "Mixed grill with lavash bread, peppers and onions" },
+      { src: photos.kebabPlatter, alt: "Lamb and chicken shish with rice and bulgur" },
+      { src: photos.familyPlatter, alt: "Family sharing platter of assorted kebabs" },
+      { src: photos.lambKofta, alt: "Lamb kofta with grilled tomato and green pepper" },
+      { src: photos.smallLambShish, alt: "Small lamb shish with rice, bulgur and yoghurt" },
+      { src: photos.grilledFish, alt: "Whole grilled fish with chips, lemon and salad" },
     ],
   },
   {
-    heading: "Mezze & starters",
+    heading: "Mezze, starters & mains",
     items: [
-      { src: mezze, alt: "Cold mezze platter with hummus, cacık and flatbread" },
-      { src: hero, alt: "Copper tray of kofte, lamb chops and grilled peppers" },
+      { src: photos.hummus, alt: "Hummus with olive oil, pomegranate and flatbread" },
+      { src: photos.springRoll, alt: "Spring rolls with chilli dipping sauce and salad" },
+      { src: photos.quesadilla, alt: "Quesadilla served with salad and bread basket" },
+      { src: photos.lambStew, alt: "Lamb stew with rice, bread and salad" },
+      { src: photos.lambShank, alt: "Lamb shank with rice, bread and sauces" },
+      { src: photos.lambShankGravy, alt: "Lamb shank in rich tomato gravy with bread" },
     ],
   },
   {
     heading: "Desserts & drinks",
-    items: [{ src: dessert, alt: "Pistachio baklava and Turkish tea on a gold plate" }],
-  },
-  {
-    heading: "Our restaurants",
     items: [
-      { src: interior, alt: "Aysu dining room with green velvet banquettes and brass lighting" },
-      { src: interior, alt: "Marble tables set for a family dinner at Aysu" },
+      { src: photos.kanafeh, alt: "Kanafeh fresh from the pan with ice cream" },
+      { src: photos.custard, alt: "Turkish baked custard dessert with ice cream" },
+      { src: photos.tiramisu, alt: "Slice of tiramisu cake with chocolate drizzle" },
+      { src: photos.ferreroIcecream, alt: "Ferrero Rocher ice cream dessert" },
+      { src: photos.jalebi, alt: "Jalebi and sweets served at the table" },
+      { src: photos.juice, alt: "Fresh green juice served in a chilled glass" },
+      { src: photos.espressoMartini, alt: "Espresso martini on a marble table" },
+      { src: photos.barSpirits, alt: "Bar display with spirits and hanging glassware" },
     ],
   },
 ];
