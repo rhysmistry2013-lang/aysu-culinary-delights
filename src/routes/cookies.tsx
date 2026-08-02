@@ -22,7 +22,7 @@ function Page() {
       <SectionHeading align="left" eyebrow="Legal" title="Cookie Policy" />
       <div className="mt-10 space-y-6 text-sm leading-relaxed text-muted-foreground">
         <p>Placeholder policy — to be reviewed by Aysu Restaurants before publication.</p>
-        <p>We use essential cookies and local browser storage to remember your basket, your light or dark theme preference and your cookie choices.</p>
+        <p>We use essential cookies and local browser storage to remember your light or dark theme preference and your cookie choices.</p>
         <p>Analytics and marketing cookies are not currently in use. If we add them, you will be asked to consent first.</p>
         <p>You can clear cookies and local storage at any time in your browser settings.</p>
       </div>

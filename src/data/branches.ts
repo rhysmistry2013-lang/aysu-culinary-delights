@@ -96,5 +96,3 @@ export const mapsDirectionsUrl = (query: string) =>
   `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(query)}`;
 
 export const telHref = (phone: string) => `tel:${phone.replace(/\s/g, "")}`;
-
-export const PHONE_TBC = "Telephone to be confirmed";
