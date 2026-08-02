@@ -40,11 +40,9 @@ export function SiteFooter() {
                 <div className="text-xs text-forest-foreground/50">
                   {b.addressLines[0]}, {b.postcode}
                 </div>
-                {b.phone ? (
-                  <a href={telHref(b.phone)} className="text-xs hover:text-gold">
-                    {b.phone}
-                  </a>
-                ) : null}
+                <a href={telHref(b.phone)} className="text-xs hover:text-gold">
+                  {b.phone}
+                </a>
               </li>
             ))}
           </ul>
@@ -56,9 +54,11 @@ export function SiteFooter() {
             {(
               [
                 { to: "/menu", label: "Menus" },
+                { to: "/order", label: "Order takeaway" },
                 { to: "/book", label: "Book a table" },
-                { to: "/locations", label: "Locations" },
-                { to: "/gallery", label: "Gallery" },
+                { to: "/gift-vouchers", label: "Gift vouchers" },
+                { to: "/loyalty", label: "Loyalty programme" },
+                { to: "/careers", label: "Careers" },
                 { to: "/faq", label: "FAQ" },
                 { to: "/contact", label: "Contact" },
                 { to: "/privacy", label: "Privacy Policy" },

@@ -73,13 +73,9 @@ function ContactPage() {
                 <p className="mt-2 text-sm text-muted-foreground">
                   {b.addressLines.join(", ")}, {b.postcode}
                 </p>
-                {b.phone ? (
-                  <a href={telHref(b.phone)} className="text-sm text-gold hover:underline">
-                    {b.phone}
-                  </a>
-                ) : (
-                  <span className="text-sm italic text-muted-foreground">Telephone to be confirmed</span>
-                )}
+                <a href={telHref(b.phone)} className="text-sm text-gold hover:underline">
+                  {b.phone}
+                </a>
                 <dl className="mt-3 space-y-1 text-sm">
                   {b.hours.map((h) => (
                     <div key={h.day} className="flex justify-between gap-4 border-b border-border/60 py-1">

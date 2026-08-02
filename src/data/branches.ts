@@ -4,7 +4,7 @@ export type Branch = {
   shortName: string;
   addressLines: string[];
   postcode: string;
-  phone?: string;
+  phone: string;
   email: string;
   mapsQuery: string;
   hours: { day: string; time: string }[];
@@ -64,26 +64,6 @@ export const branches: Branch[] = [
     facilities: ["Dine-in", "Takeaway", "Delivery", "Family friendly", "Halal"],
     verified: true,
     note: "Address and telephone taken from the Aysu menu. Opening hours, parking and accessibility are placeholder content pending confirmation.",
-  },
-  {
-    slug: "watford",
-    name: "Aysu — Watford",
-    shortName: "Watford",
-    addressLines: ["152–154 High Street", "Watford, Hertfordshire"],
-    postcode: "WD17 2EN",
-    // Telephone not yet published for the Watford branch.
-    email: "info@aysu.uk",
-    mapsQuery: "Aysu Watford, 152-154 High Street, Watford WD17 2EN",
-    hours: [
-      { day: "Sunday – Thursday", time: "11:30 – 22:00" },
-      { day: "Friday", time: "11:30 – 23:00" },
-      { day: "Saturday", time: "11:30 – 23:00" },
-    ],
-    parking: "Watford High Street parking and the Intu/Atria multi-storey car parks are a short walk away. Placeholder — to be confirmed by the branch.",
-    accessibility: "Placeholder — accessibility details to be confirmed by the branch.",
-    facilities: ["Dine-in", "Takeaway", "Family friendly", "Halal"],
-    verified: true,
-    note: "Address and opening hours from the Aysu Watford listing. Telephone, parking and accessibility are placeholder content pending confirmation.",
   },
 ];
 

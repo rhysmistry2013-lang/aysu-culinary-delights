@@ -3,7 +3,10 @@ import { motion } from "motion/react";
 import { MapPin, Phone, Star } from "lucide-react";
 import hero from "@/assets/hero-spread.jpg";
 import interior from "@/assets/interior.jpg";
-import { photos } from "@/assets/photos";
+import mezze from "@/assets/dish-mezze.jpg";
+import shish from "@/assets/dish-lamb-shish.jpg";
+import iskender from "@/assets/dish-iskender.jpg";
+import dessert from "@/assets/dessert.jpg";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { branches, mapsDirectionsUrl, mapsEmbedUrl, telHref } from "@/data/branches";
@@ -26,10 +29,10 @@ export const Route = createFileRoute("/")({
 });
 
 const featured = [
-  { name: "Mix Grill", price: 21.5, image: photos.mixedGrill, blurb: "Lamb shish, chicken shish and lamb kofte from the charcoal grill." },
-  { name: "İskender", price: 15.5, image: photos.kebabPlatter, blurb: "Doner on warm bread with yoghurt and tomato butter sauce." },
-  { name: "Mix Cold Starter", price: 14.5, image: photos.hummus, blurb: "Hummus, cacık, potato salad, tarama and aubergine salad." },
-  { name: "Baklava & Çay", image: photos.kanafeh, blurb: "Pistachio baklava with Turkish tea. Price to be confirmed." },
+  { name: "Mix Grill", price: 21.5, image: shish, blurb: "Lamb shish, chicken shish and lamb kofte from the charcoal grill." },
+  { name: "İskender", price: 15.5, image: iskender, blurb: "Doner on warm bread with yoghurt and tomato butter sauce." },
+  { name: "Mix Cold Starter", price: 14.5, image: mezze, blurb: "Hummus, cacık, potato salad, tarama and aubergine salad." },
+  { name: "Baklava & Çay", image: dessert, blurb: "Pistachio baklava with Turkish tea. Price to be confirmed." },
 ];
 
 const reviews = [
@@ -54,12 +57,12 @@ const reviews = [
 ];
 
 const gallery = [
-  { src: photos.familyPlatter, alt: "Family sharing platter of assorted charcoal kebabs" },
+  { src: hero, alt: "Turkish sharing spread with grilled meats, mezze and bread" },
   { src: interior, alt: "Aysu dining room with green velvet banquettes and gold lighting" },
-  { src: photos.smallLambShish, alt: "Small lamb shish with rice, bulgur and yoghurt" },
-  { src: photos.hummus, alt: "Hummus with olive oil, pomegranate and flatbread" },
-  { src: photos.lambShank, alt: "Lamb shank with rice, bread and sauces" },
-  { src: photos.kanafeh, alt: "Kanafeh served hot with a scoop of ice cream" },
+  { src: shish, alt: "Lamb shish skewer with bulgur rice" },
+  { src: mezze, alt: "Cold mezze platter with hummus and flatbread" },
+  { src: iskender, alt: "İskender kebab with yoghurt and tomato butter sauce" },
+  { src: dessert, alt: "Baklava and Turkish tea on a gold plate" },
 ];
 
 function Index() {
@@ -257,13 +260,9 @@ function Index() {
                     </p>
                     <p className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
                       <Phone className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
-                      {b.phone ? (
-                        <a href={telHref(b.phone)} className="hover:text-gold">
-                          {b.phone}
-                        </a>
-                      ) : (
-                        <span className="italic">Telephone to be confirmed</span>
-                      )}
+                      <a href={telHref(b.phone)} className="hover:text-gold">
+                        {b.phone}
+                      </a>
                     </p>
                     <dl className="mt-4 space-y-1 text-sm">
                       {b.hours.map((h) => (
@@ -282,14 +281,12 @@ function Index() {
                       >
                         Directions
                       </a>
-                      {b.phone ? (
-                        <a
-                          href={telHref(b.phone)}
-                          className="rounded-sm border border-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold hover:bg-gold/10"
-                        >
-                          Call now
-                        </a>
-                      ) : null}
+                      <a
+                        href={telHref(b.phone)}
+                        className="rounded-sm border border-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold hover:bg-gold/10"
+                      >
+                        Call now
+                      </a>
                       <Link
                         to="/branches/$slug"
                         params={{ slug: b.slug }}

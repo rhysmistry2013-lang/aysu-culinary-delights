@@ -2,7 +2,10 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Accessibility, Car, MapPin, Phone, Star } from "lucide-react";
 import hero from "@/assets/hero-spread.jpg";
 import interior from "@/assets/interior.jpg";
-import { photos } from "@/assets/photos";
+import shish from "@/assets/dish-lamb-shish.jpg";
+import mezze from "@/assets/dish-mezze.jpg";
+import iskender from "@/assets/dish-iskender.jpg";
+import dessert from "@/assets/dessert.jpg";
 import { Reveal } from "@/components/reveal";
 import {
   branches,
@@ -51,12 +54,12 @@ function BranchNotFound() {
   );
 }
 
-const branchGallery = [
+const photos = [
   { src: interior, alt: "Dining room interior" },
-  { src: photos.mixedGrill, alt: "Mixed grill with lavash, peppers and onions" },
-  { src: photos.hummus, alt: "Hummus with olive oil and pomegranate" },
-  { src: photos.kebabPlatter, alt: "Lamb and chicken shish with rice and bulgur" },
-  { src: photos.kanafeh, alt: "Kanafeh served hot with ice cream" },
+  { src: shish, alt: "Lamb shish from the charcoal grill" },
+  { src: mezze, alt: "Cold mezze platter" },
+  { src: iskender, alt: "İskender kebab" },
+  { src: dessert, alt: "Baklava and Turkish tea" },
 ];
 
 function BranchPage() {
@@ -117,6 +120,9 @@ function BranchPage() {
             <Link to="/book" className="rounded-sm bg-gold px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold-foreground">
               Book a table
             </Link>
+            <Link to="/order" className="rounded-sm border border-gold px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold hover:bg-gold/10">
+              Order takeaway
+            </Link>
             <Link to="/menu" className="rounded-sm border border-forest-foreground/30 px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em]">
               View menu
             </Link>
@@ -145,13 +151,9 @@ function BranchPage() {
             </p>
             <p className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
               <Phone className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
-              {b.phone ? (
-                <a href={telHref(b.phone)} className="hover:text-gold">
-                  {b.phone}
-                </a>
-              ) : (
-                <span className="italic">Telephone to be confirmed</span>
-              )}
+              <a href={telHref(b.phone)} className="hover:text-gold">
+                {b.phone}
+              </a>
             </p>
 
             <h3 className="mt-8 font-display text-xl text-gold">Opening times</h3>
@@ -191,14 +193,12 @@ function BranchPage() {
               >
                 Directions
               </a>
-              {b.phone ? (
-                <a
-                  href={telHref(b.phone)}
-                  className="rounded-sm border border-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold hover:bg-gold/10"
-                >
-                  Call now
-                </a>
-              ) : null}
+              <a
+                href={telHref(b.phone)}
+                className="rounded-sm border border-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold hover:bg-gold/10"
+              >
+                Call now
+              </a>
             </div>
 
             {b.note ? (
@@ -214,7 +214,7 @@ function BranchPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <h2 className="text-3xl">Photo gallery</h2>
           <ul className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-5">
-            {branchGallery.map((p) => (
+            {photos.map((p) => (
               <li key={p.alt}>
                 <img src={p.src} alt={p.alt} loading="lazy" className="h-44 w-full rounded-sm object-cover" />
               </li>

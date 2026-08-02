@@ -1,8 +1,10 @@
-import { Flame, Leaf, Search, Sprout, WheatOff } from "lucide-react";
+import { Flame, Leaf, Plus, Search, Sprout, WheatOff } from "lucide-react";
 import { useMemo, useState } from "react";
+import { toast } from "sonner";
 import { categories, menu, type MenuItem } from "@/data/menu";
 import { dishImages, fallbackFor } from "@/components/dish-image";
 import { gbp } from "@/lib/format";
+import { useBasket } from "@/context/basket";
 
 const filters = [
   { key: "vegetarian", label: "Vegetarian" },
@@ -54,6 +56,7 @@ export function MenuBrowser({ branchName }: { branchName?: string }) {
   const [category, setCategory] = useState<string>("All");
   const [active, setActive] = useState<FilterKey[]>([]);
   const [sort, setSort] = useState<"menu" | "popular" | "price-asc" | "price-desc">("menu");
+  const { add } = useBasket();
 
   const toggle = (key: FilterKey) =>
     setActive((prev) => (prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]));
@@ -201,13 +204,24 @@ export function MenuBrowser({ branchName }: { branchName?: string }) {
                 <span className="font-semibold">Allergens:</span>{" "}
                 {item.allergens.length ? item.allergens.join(", ") : "None declared"}
               </p>
-              {item.price == null ? (
-                <div className="mt-auto pt-2">
+              <div className="mt-auto pt-2">
+                {item.price != null ? (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      add({ id: item.id, name: item.name, price: item.price! });
+                      toast.success(`${item.name} added to basket`);
+                    }}
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-sm border border-gold px-4 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-gold transition-colors hover:bg-gold hover:text-gold-foreground"
+                  >
+                    <Plus className="h-4 w-4" aria-hidden="true" /> Add to basket
+                  </button>
+                ) : (
                   <p className="text-xs italic text-muted-foreground">
                     Placeholder item — price to be confirmed by the branch.
                   </p>
-                </div>
-              ) : null}
+                )}
+              </div>
             </div>
           </li>
         ))}

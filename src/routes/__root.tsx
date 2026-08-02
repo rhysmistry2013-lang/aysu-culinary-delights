@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { BasketProvider } from "@/context/basket";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
@@ -84,7 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Charcoal-grilled kebabs, mezze and Turkish breakfast at Aysu Restaurants in Queensbury, Harrow and Watford. Menus, opening hours and locations.",
+          "Charcoal-grilled kebabs, mezze and Turkish breakfast at Aysu Restaurants in Queensbury and Harrow. Book a table or order takeaway.",
       },
       { name: "author", content: "Aysu Restaurants" },
       { property: "og:site_name", content: "Aysu Restaurants" },
@@ -130,15 +131,17 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-dvh flex-col">
-        <SiteHeader />
-        <main id="main" className="flex-1">
-          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-          <Outlet />
-        </main>
-        <SiteFooter />
-      </div>
-      <Toaster />
+      <BasketProvider>
+        <div className="flex min-h-dvh flex-col">
+          <SiteHeader />
+          <main id="main" className="flex-1">
+            {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+            <Outlet />
+          </main>
+          <SiteFooter />
+        </div>
+        <Toaster />
+      </BasketProvider>
     </QueryClientProvider>
   );
 }
