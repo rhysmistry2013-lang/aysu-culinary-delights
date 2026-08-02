@@ -2,10 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Accessibility, Car, MapPin, Phone, Star } from "lucide-react";
 import hero from "@/assets/hero-spread.jpg";
 import interior from "@/assets/interior.jpg";
-import shish from "@/assets/dish-lamb-shish.jpg";
-import mezze from "@/assets/dish-mezze.jpg";
-import iskender from "@/assets/dish-iskender.jpg";
-import dessert from "@/assets/dessert.jpg";
+import { photos } from "@/assets/photos";
 import { Reveal } from "@/components/reveal";
 import {
   branches,
@@ -54,12 +51,12 @@ function BranchNotFound() {
   );
 }
 
-const photos = [
+const branchGallery = [
   { src: interior, alt: "Dining room interior" },
-  { src: shish, alt: "Lamb shish from the charcoal grill" },
-  { src: mezze, alt: "Cold mezze platter" },
-  { src: iskender, alt: "İskender kebab" },
-  { src: dessert, alt: "Baklava and Turkish tea" },
+  { src: photos.mixedGrill, alt: "Mixed grill with lavash, peppers and onions" },
+  { src: photos.hummus, alt: "Hummus with olive oil and pomegranate" },
+  { src: photos.kebabPlatter, alt: "Lamb and chicken shish with rice and bulgur" },
+  { src: photos.kanafeh, alt: "Kanafeh served hot with ice cream" },
 ];
 
 function BranchPage() {
@@ -217,7 +214,7 @@ function BranchPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <h2 className="text-3xl">Photo gallery</h2>
           <ul className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-5">
-            {photos.map((p) => (
+            {branchGallery.map((p) => (
               <li key={p.alt}>
                 <img src={p.src} alt={p.alt} loading="lazy" className="h-44 w-full rounded-sm object-cover" />
               </li>

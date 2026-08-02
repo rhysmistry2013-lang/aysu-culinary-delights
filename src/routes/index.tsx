@@ -3,10 +3,7 @@ import { motion } from "motion/react";
 import { MapPin, Phone, Star } from "lucide-react";
 import hero from "@/assets/hero-spread.jpg";
 import interior from "@/assets/interior.jpg";
-import mezze from "@/assets/dish-mezze.jpg";
-import shish from "@/assets/dish-lamb-shish.jpg";
-import iskender from "@/assets/dish-iskender.jpg";
-import dessert from "@/assets/dessert.jpg";
+import { photos } from "@/assets/photos";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { branches, mapsDirectionsUrl, mapsEmbedUrl, telHref } from "@/data/branches";
@@ -29,10 +26,10 @@ export const Route = createFileRoute("/")({
 });
 
 const featured = [
-  { name: "Mix Grill", price: 21.5, image: shish, blurb: "Lamb shish, chicken shish and lamb kofte from the charcoal grill." },
-  { name: "İskender", price: 15.5, image: iskender, blurb: "Doner on warm bread with yoghurt and tomato butter sauce." },
-  { name: "Mix Cold Starter", price: 14.5, image: mezze, blurb: "Hummus, cacık, potato salad, tarama and aubergine salad." },
-  { name: "Baklava & Çay", image: dessert, blurb: "Pistachio baklava with Turkish tea. Price to be confirmed." },
+  { name: "Mix Grill", price: 21.5, image: photos.mixedGrill, blurb: "Lamb shish, chicken shish and lamb kofte from the charcoal grill." },
+  { name: "İskender", price: 15.5, image: photos.kebabPlatter, blurb: "Doner on warm bread with yoghurt and tomato butter sauce." },
+  { name: "Mix Cold Starter", price: 14.5, image: photos.hummus, blurb: "Hummus, cacık, potato salad, tarama and aubergine salad." },
+  { name: "Baklava & Çay", image: photos.kanafeh, blurb: "Pistachio baklava with Turkish tea. Price to be confirmed." },
 ];
 
 const reviews = [
@@ -57,12 +54,12 @@ const reviews = [
 ];
 
 const gallery = [
-  { src: hero, alt: "Turkish sharing spread with grilled meats, mezze and bread" },
+  { src: photos.familyPlatter, alt: "Family sharing platter of assorted charcoal kebabs" },
   { src: interior, alt: "Aysu dining room with green velvet banquettes and gold lighting" },
-  { src: shish, alt: "Lamb shish skewer with bulgur rice" },
-  { src: mezze, alt: "Cold mezze platter with hummus and flatbread" },
-  { src: iskender, alt: "İskender kebab with yoghurt and tomato butter sauce" },
-  { src: dessert, alt: "Baklava and Turkish tea on a gold plate" },
+  { src: photos.smallLambShish, alt: "Small lamb shish with rice, bulgur and yoghurt" },
+  { src: photos.hummus, alt: "Hummus with olive oil, pomegranate and flatbread" },
+  { src: photos.lambShank, alt: "Lamb shank with rice, bread and sauces" },
+  { src: photos.kanafeh, alt: "Kanafeh served hot with a scoop of ice cream" },
 ];
 
 function Index() {
