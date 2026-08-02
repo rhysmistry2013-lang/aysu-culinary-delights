@@ -4,7 +4,7 @@ export type Branch = {
   shortName: string;
   addressLines: string[];
   postcode: string;
-  phone: string;
+  phone?: string;
   email: string;
   mapsQuery: string;
   hours: { day: string; time: string }[];
@@ -71,7 +71,7 @@ export const branches: Branch[] = [
     shortName: "Watford",
     addressLines: ["152–154 High Street", "Watford, Hertfordshire"],
     postcode: "WD17 2EN",
-    phone: "01923 echo",
+    // Telephone not yet published for the Watford branch.
     email: "info@aysu.uk",
     mapsQuery: "Aysu Watford, 152-154 High Street, Watford WD17 2EN",
     hours: [
@@ -96,3 +96,5 @@ export const mapsDirectionsUrl = (query: string) =>
   `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(query)}`;
 
 export const telHref = (phone: string) => `tel:${phone.replace(/\s/g, "")}`;
+
+export const PHONE_TBC = "Telephone to be confirmed";

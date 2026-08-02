@@ -40,9 +40,11 @@ export function SiteFooter() {
                 <div className="text-xs text-forest-foreground/50">
                   {b.addressLines[0]}, {b.postcode}
                 </div>
-                <a href={telHref(b.phone)} className="text-xs hover:text-gold">
-                  {b.phone}
-                </a>
+                {b.phone ? (
+                  <a href={telHref(b.phone)} className="text-xs hover:text-gold">
+                    {b.phone}
+                  </a>
+                ) : null}
               </li>
             ))}
           </ul>
