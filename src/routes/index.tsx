@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
 });
 
 const featured = [
-  { name: "Mix Grill", price: 21.5, image: photos.smallLambShish, blurb: "Lamb shish, chicken shish and lamb kofte from the charcoal grill." },
+  { name: "Mix Grill", price: 21.5, image: photos.mixedGrill, blurb: "Lamb shish, chicken shish and lamb kofte from the charcoal grill." },
   { name: "İskender", price: 15.5, image: photos.kebabPlatter, blurb: "Doner on warm bread with yoghurt and tomato butter sauce." },
   { name: "Mix Cold Starter", price: 14.5, image: photos.hummus, blurb: "Hummus, cacık, potato salad, tarama and aubergine salad." },
   { name: "Baklava & Çay", image: photos.kanafeh, blurb: "Pistachio baklava with Turkish tea. Price to be confirmed." },
@@ -54,12 +54,12 @@ const reviews = [
 ];
 
 const gallery = [
-  { src: hero, alt: "Turkish sharing spread with grilled meats, mezze and bread" },
+  { src: photos.familyPlatter, alt: "Family sharing platter of assorted charcoal kebabs" },
   { src: interior, alt: "Aysu dining room with green velvet banquettes and gold lighting" },
-  { src: photos.smallLambShish, alt: "Lamb shish skewer with bulgur rice" },
-  { src: photos.hummus, alt: "Cold mezze platter with hummus and flatbread" },
-  { src: photos.kebabPlatter, alt: "İskender kebab with yoghurt and tomato butter sauce" },
-  { src: photos.kanafeh, alt: "Baklava and Turkish tea on a gold plate" },
+  { src: photos.smallLambShish, alt: "Small lamb shish with rice, bulgur and yoghurt" },
+  { src: photos.hummus, alt: "Hummus with olive oil, pomegranate and flatbread" },
+  { src: photos.lambShank, alt: "Lamb shank with rice, bread and sauces" },
+  { src: photos.kanafeh, alt: "Kanafeh served hot with a scoop of ice cream" },
 ];
 
 function Index() {
