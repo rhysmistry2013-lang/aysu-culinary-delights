@@ -260,9 +260,13 @@ function Index() {
                     </p>
                     <p className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
                       <Phone className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
-                      <a href={telHref(b.phone)} className="hover:text-gold">
-                        {b.phone}
-                      </a>
+                      {b.phone ? (
+                        <a href={telHref(b.phone)} className="hover:text-gold">
+                          {b.phone}
+                        </a>
+                      ) : (
+                        <span className="italic">Telephone to be confirmed</span>
+                      )}
                     </p>
                     <dl className="mt-4 space-y-1 text-sm">
                       {b.hours.map((h) => (
@@ -281,12 +285,14 @@ function Index() {
                       >
                         Directions
                       </a>
-                      <a
-                        href={telHref(b.phone)}
-                        className="rounded-sm border border-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold hover:bg-gold/10"
-                      >
-                        Call now
-                      </a>
+                      {b.phone ? (
+                        <a
+                          href={telHref(b.phone)}
+                          className="rounded-sm border border-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold hover:bg-gold/10"
+                        >
+                          Call now
+                        </a>
+                      ) : null}
                       <Link
                         to="/branches/$slug"
                         params={{ slug: b.slug }}
