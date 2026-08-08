@@ -6,7 +6,7 @@ import { branches } from "@/data/branches";
 
 const title = "Book a Table | Aysu Restaurants";
 const description =
-  "Reserve a table at Aysu Queensbury or Harrow. Choose your branch, date, time, party size and let us know about any special requests.";
+  "Reserve a table at Aysu Queensbury, Harrow or Watford. Choose your branch, date, time, party size and let us know about any special requests.";
 
 export const Route = createFileRoute("/book")({
   head: () => ({

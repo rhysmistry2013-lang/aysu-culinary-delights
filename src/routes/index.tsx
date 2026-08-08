@@ -14,7 +14,7 @@ import { gbp } from "@/lib/format";
 
 const title = "Aysu Restaurants | Authentic Turkish Dining in London";
 const description =
-  "Charcoal-grilled kebabs, fresh mezze and all-day Turkish breakfast at Aysu in Queensbury and Harrow. Book a table, order takeaway or find your nearest branch.";
+  "Charcoal-grilled kebabs, fresh mezze and all-day Turkish breakfast at Aysu in Queensbury, Harrow and Watford. Book a table, order takeaway or find your nearest branch.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -104,7 +104,7 @@ function Index() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Queensbury · Harrow
+            Queensbury · Harrow · Watford
           </motion.p>
           <motion.h1
             className="mt-6 text-4xl leading-[1.05] tracking-tight sm:text-6xl md:text-7xl"
@@ -235,10 +235,10 @@ function Index() {
           <SectionHeading
             eyebrow="Find us"
             title="Our restaurants"
-            intro="Two kitchens, one standard. Choose a branch for menus, opening times and directions."
+            intro="Three kitchens, one standard. Choose a branch for menus, opening times and directions."
           />
         </Reveal>
-        <ul className="mt-14 grid gap-8 lg:grid-cols-2">
+        <ul className="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {branches.map((b, i) => (
             <li key={b.slug}>
               <Reveal delay={i * 0.1}>

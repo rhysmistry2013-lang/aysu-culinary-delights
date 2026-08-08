@@ -65,6 +65,27 @@ export const branches: Branch[] = [
     verified: true,
     note: "Address and telephone taken from the Aysu menu. Opening hours, parking and accessibility are placeholder content pending confirmation.",
   },
+  {
+    slug: "watford",
+    name: "Aysu — Watford",
+    shortName: "Watford",
+    addressLines: ["Watford High Street", "Watford, Hertfordshire"],
+    postcode: "WD17 2BS",
+    phone: "020 4559 9293",
+    email: "info@aysu.uk",
+    mapsQuery: "Aysu Turkish restaurant, Watford High Street, Watford WD17 2BS",
+    hours: [
+      { day: "Monday – Thursday", time: "11:00 – 23:00" },
+      { day: "Friday", time: "11:00 – 23:30" },
+      { day: "Saturday", time: "11:00 – 23:30" },
+      { day: "Sunday", time: "11:00 – 22:30" },
+    ],
+    parking: "Placeholder — parking details to be confirmed by the branch.",
+    accessibility: "Placeholder — accessibility details to be confirmed by the branch.",
+    facilities: ["Dine-in", "Takeaway", "Delivery", "Family friendly", "Halal"],
+    verified: false,
+    note: "Placeholder listing — full address, postcode, telephone and opening hours for the Watford branch to be confirmed by Aysu.",
+  },
 ];
 
 export const getBranch = (slug: string) => branches.find((b) => b.slug === slug);

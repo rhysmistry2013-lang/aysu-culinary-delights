@@ -4,9 +4,9 @@ import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { branches, mapsDirectionsUrl, mapsEmbedUrl, telHref } from "@/data/branches";
 
-const title = "Our Restaurants | Aysu Queensbury & Harrow";
+const title = "Our Restaurants | Aysu Queensbury, Harrow & Watford";
 const description =
-  "Find your nearest Aysu restaurant. Addresses, phone numbers, opening hours, maps and directions for our Queensbury and Harrow branches.";
+  "Find your nearest Aysu restaurant. Addresses, phone numbers, opening hours, maps and directions for our Queensbury, Harrow and Watford branches.";
 
 export const Route = createFileRoute("/locations")({
   head: () => ({
@@ -28,7 +28,7 @@ function LocationsPage() {
         title="Find your nearest Aysu"
         intro="Every branch serves the same charcoal-grill menu with its own daily specials."
       />
-      <ul className="mt-14 grid gap-8 lg:grid-cols-2">
+      <ul className="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
         {branches.map((b, i) => (
           <li key={b.slug}>
             <Reveal delay={i * 0.08}>
