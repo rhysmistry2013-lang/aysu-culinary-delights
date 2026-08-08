@@ -1,24 +1,18 @@
 import { Link } from "@tanstack/react-router";
-import { Menu as MenuIcon, ShoppingBag, X } from "lucide-react";
+import { Menu as MenuIcon, X } from "lucide-react";
 import { useState } from "react";
-import { useBasket } from "@/context/basket";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const links = [
   { to: "/menu", label: "Menu" },
   { to: "/locations", label: "Locations" },
   { to: "/gallery", label: "Gallery" },
-  { to: "/order", label: "Order" },
-  { to: "/gift-vouchers", label: "Gift Vouchers" },
-  { to: "/loyalty", label: "Loyalty" },
-  { to: "/careers", label: "Careers" },
   { to: "/faq", label: "FAQ" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
-  const { count } = useBasket();
 
   return (
     <header className="sticky top-0 z-50 border-b border-gold/20 bg-forest-deep/95 text-forest-foreground backdrop-blur supports-[backdrop-filter]:bg-forest-deep/80">
@@ -53,18 +47,6 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center justify-end gap-2">
-          <Link
-            to="/order"
-            className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold/30 text-gold transition-colors hover:bg-gold/10"
-            aria-label={`Basket, ${count} item${count === 1 ? "" : "s"}`}
-          >
-            <ShoppingBag className="h-4 w-4" aria-hidden="true" />
-            {count > 0 ? (
-              <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-gold px-1 text-[10px] font-bold text-gold-foreground">
-                {count}
-              </span>
-            ) : null}
-          </Link>
           <ThemeToggle />
           <Link
             to="/book"
