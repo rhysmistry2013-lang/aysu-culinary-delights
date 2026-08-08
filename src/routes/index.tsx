@@ -238,7 +238,7 @@ function Index() {
             intro="Three kitchens, one standard. Choose a branch for menus, opening times and directions."
           />
         </Reveal>
-        <ul className="mt-14 grid gap-8 lg:grid-cols-2">
+        <ul className="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {branches.map((b, i) => (
             <li key={b.slug}>
               <Reveal delay={i * 0.1}>

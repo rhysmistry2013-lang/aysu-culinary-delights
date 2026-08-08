@@ -28,7 +28,7 @@ function LocationsPage() {
         title="Find your nearest Aysu"
         intro="Every branch serves the same charcoal-grill menu with its own daily specials."
       />
-      <ul className="mt-14 grid gap-8 lg:grid-cols-2">
+      <ul className="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
         {branches.map((b, i) => (
           <li key={b.slug}>
             <Reveal delay={i * 0.08}>
