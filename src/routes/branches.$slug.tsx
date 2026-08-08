@@ -120,10 +120,7 @@ function BranchPage() {
             <Link to="/book" className="rounded-sm bg-gold px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold-foreground">
               Book a table
             </Link>
-            <Link to="/order" className="rounded-sm border border-gold px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold hover:bg-gold/10">
-              Order takeaway
-            </Link>
-            <Link to="/menu" className="rounded-sm border border-forest-foreground/30 px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em]">
+            <Link to="/menu" className="rounded-sm border border-gold px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold hover:bg-gold/10">
               View menu
             </Link>
           </div>
