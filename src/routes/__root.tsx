@@ -13,7 +13,6 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { BasketProvider } from "@/context/basket";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
@@ -131,17 +130,15 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <BasketProvider>
-        <div className="flex min-h-dvh flex-col">
-          <SiteHeader />
-          <main id="main" className="flex-1">
-            {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-            <Outlet />
-          </main>
-          <SiteFooter />
-        </div>
-        <Toaster />
-      </BasketProvider>
+      <div className="flex min-h-dvh flex-col">
+        <SiteHeader />
+        <main id="main" className="flex-1">
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </main>
+        <SiteFooter />
+      </div>
+      <Toaster />
     </QueryClientProvider>
   );
 }
