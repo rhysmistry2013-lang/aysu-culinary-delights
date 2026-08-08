@@ -4,9 +4,9 @@ import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { branches, mapsDirectionsUrl, mapsEmbedUrl, telHref } from "@/data/branches";
 
-const title = "Our Restaurants | Aysu Queensbury & Harrow";
+const title = "Our Restaurants | Aysu Queensbury, Harrow & Watford";
 const description =
-  "Find your nearest Aysu restaurant. Addresses, phone numbers, opening hours, maps and directions for our Queensbury and Harrow branches.";
+  "Find your nearest Aysu restaurant. Addresses, phone numbers, opening hours, maps and directions for our Queensbury, Harrow and Watford branches.";
 
 export const Route = createFileRoute("/locations")({
   head: () => ({

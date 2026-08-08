@@ -26,9 +26,9 @@ export const Route = createFileRoute("/faq")({
 const faqs: [string, string][] = [
   ["Do you cater for allergies?", "Yes — tell your server before ordering. Our kitchens handle nuts, gluten, sesame, dairy, egg and shellfish, so we cannot guarantee an allergen-free dish, but we will always advise honestly."],
   ["Is your meat halal?", "Yes. All meat served at Aysu is halal, as shown on our menu."],
-  ["Which areas do you deliver to?", "Placeholder — delivery radius to be confirmed for each branch. Collection is available at both restaurants."],
+  ["Which areas do you deliver to?", "Placeholder — delivery radius to be confirmed for each branch. Collection is available at all three restaurants."],
   ["Do I need to book a table?", "Walk-ins are welcome, but weekends get busy. Book online or call your branch to be sure."],
-  ["Is there parking?", "Queensbury has street parking on the Station Parade and is one minute from Queensbury Underground. Harrow parking details are to be confirmed."],
+  ["Is there parking?", "Queensbury has street parking on the Station Parade and is one minute from Queensbury Underground. Harrow and Watford parking details are to be confirmed."],
   ["Can you take large bookings?", "Yes. For parties of 10 or more please call the branch directly so we can arrange seating and a set menu if you'd like one."],
   ["Do you offer catering?", "Placeholder — catering and event packages to be confirmed. Please contact us with your requirements."],
 ];
