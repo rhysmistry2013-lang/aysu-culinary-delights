@@ -54,11 +54,7 @@ export function SiteFooter() {
             {(
               [
                 { to: "/menu", label: "Menus" },
-                { to: "/order", label: "Order takeaway" },
                 { to: "/book", label: "Book a table" },
-                { to: "/gift-vouchers", label: "Gift vouchers" },
-                { to: "/loyalty", label: "Loyalty programme" },
-                { to: "/careers", label: "Careers" },
                 { to: "/faq", label: "FAQ" },
                 { to: "/contact", label: "Contact" },
                 { to: "/privacy", label: "Privacy Policy" },
