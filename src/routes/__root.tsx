@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Charcoal-grilled kebabs, mezze and Turkish breakfast at Aysu Restaurants in Queensbury, Harrow and Watford. Book a table or order takeaway.",
+          "Charcoal-grilled kebabs, mezze and Turkish breakfast at Aysu Restaurants in Queensbury, Harrow and Watford. View menus, locations and directions.",
       },
       { name: "author", content: "Aysu Restaurants" },
       { property: "og:site_name", content: "Aysu Restaurants" },

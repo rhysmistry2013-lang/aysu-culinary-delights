@@ -28,7 +28,7 @@ export const Route = createFileRoute("/branches/$slug")({
     }
     const b = loaderData.branch;
     const title = `${b.name} | Turkish Restaurant in ${b.shortName}`;
-    const description = `Visit ${b.name} at ${b.addressLines.join(", ")}, ${b.postcode}. Opening hours, parking, accessibility, menu, booking and takeaway.`;
+    const description = `Visit ${b.name} at ${b.addressLines.join(", ")}, ${b.postcode}. Opening hours, parking, accessibility, menu and directions.`;
     return {
       meta: [
         { title },
@@ -117,11 +117,11 @@ function BranchPage() {
             </p>
           ) : null}
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/book" className="rounded-sm bg-gold px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold-foreground">
-              Book a table
-            </Link>
-            <Link to="/menu" className="rounded-sm border border-gold px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold hover:bg-gold/10">
+            <Link to="/menu" className="rounded-sm bg-gold px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold-foreground">
               View menu
+            </Link>
+            <Link to="/locations" className="rounded-sm border border-gold px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold hover:bg-gold/10">
+              Other branches
             </Link>
           </div>
         </div>
