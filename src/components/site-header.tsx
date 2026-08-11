@@ -48,12 +48,6 @@ export function SiteHeader() {
 
         <div className="flex items-center justify-end gap-2">
           <ThemeToggle />
-          <Link
-            to="/book"
-            className="hidden rounded-sm bg-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-gold-foreground transition-opacity hover:opacity-90 sm:inline-block"
-          >
-            Book a table
-          </Link>
           <button
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold/30 text-gold lg:hidden"
@@ -82,15 +76,6 @@ export function SiteHeader() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link
-                to="/book"
-                onClick={() => setOpen(false)}
-                className="my-3 block rounded-sm bg-gold px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-gold-foreground"
-              >
-                Book a table
-              </Link>
-            </li>
           </ul>
         </nav>
       ) : null}

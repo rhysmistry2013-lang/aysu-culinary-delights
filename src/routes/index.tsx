@@ -14,7 +14,7 @@ import { gbp } from "@/lib/format";
 
 const title = "Aysu Restaurants | Authentic Turkish Dining in London";
 const description =
-  "Charcoal-grilled kebabs, fresh mezze and all-day Turkish breakfast at Aysu in Queensbury, Harrow and Watford. Book a table, order takeaway or find your nearest branch.";
+  "Charcoal-grilled kebabs, fresh mezze and all-day Turkish breakfast at Aysu in Queensbury, Harrow and Watford. View menus, find your nearest branch and get directions.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

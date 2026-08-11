@@ -54,7 +54,6 @@ export function SiteFooter() {
             {(
               [
                 { to: "/menu", label: "Menus" },
-                { to: "/book", label: "Book a table" },
                 { to: "/faq", label: "FAQ" },
                 { to: "/contact", label: "Contact" },
                 { to: "/privacy", label: "Privacy Policy" },
