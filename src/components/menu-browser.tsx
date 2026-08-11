@@ -1,7 +1,7 @@
 import { Flame, Leaf, Search, Sprout, WheatOff } from "lucide-react";
 import { useMemo, useState } from "react";
 import { categories, menu, type MenuItem } from "@/data/menu";
-import { dishImages, fallbackFor } from "@/components/dish-image";
+import { imageFor } from "@/components/dish-image";
 import { gbp } from "@/lib/format";
 
 const filters = [
@@ -173,7 +173,7 @@ export function MenuBrowser({ branchName }: { branchName?: string }) {
             className="group flex flex-col overflow-hidden rounded-sm border border-border bg-card transition-shadow hover:shadow-lg"
           >
             <img
-              src={item.image ? dishImages[item.image] : fallbackFor(item.category)}
+              src={imageFor(item.category, item.name)}
               alt={item.name}
               loading="lazy"
               width={1024}
