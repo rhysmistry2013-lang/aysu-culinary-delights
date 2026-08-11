@@ -39,4 +39,28 @@ const byCategory: Record<string, string> = {
   Drinks: drinks,
 };
 
+const specific = import.meta.glob("@/assets/menu/*.jpg", {
+  eager: true,
+  import: "default",
+  query: "?url",
+}) as Record<string, string>;
+
+const bySlug: Record<string, string> = Object.fromEntries(
+  Object.entries(specific).map(([path, url]) => [
+    path.split("/").pop()!.replace(/\.jpg$/, ""),
+    url,
+  ]),
+);
+
+const slugify = (s: string) =>
+  s
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+export const imageFor = (category: string, name: string) =>
+  bySlug[`${slugify(category)}-${slugify(name)}`] ?? fallbackFor(category);
+
 export const fallbackFor = (category: string) => byCategory[category] ?? shish;
