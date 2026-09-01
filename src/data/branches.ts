@@ -7,19 +7,19 @@ export type Branch = {
   phone: string;
   email: string;
   mapsQuery: string;
+  /** Opening times — edit here to update them everywhere on the site. */
   hours: { day: string; time: string }[];
-  parking: string;
-  accessibility: string;
+  /** Online ordering link for this branch. Leave null until Aysu provides one. */
+  orderUrl: string | null;
+  parking?: string;
+  accessibility?: string;
   facilities: string[];
-  verified: boolean;
-  note?: string;
-  rating?: { score: number; count: number };
 };
 
 /**
- * Only details visible on Aysu's own printed menu and the Google listing
- * supplied by the client are treated as verified. Everything marked
- * `verified: false` is clearly flagged as placeholder in the UI.
+ * Branch details. Addresses and phone numbers are taken from Aysu's own menu.
+ * Opening hours are indicative and should be replaced with the restaurant's
+ * confirmed times — edit the `hours` arrays below.
  */
 export const branches: Branch[] = [
   {
@@ -33,16 +33,14 @@ export const branches: Branch[] = [
     mapsQuery: "Aysu Kitchen, 40 Queensbury Station Parade, Edgware HA8 5NN",
     hours: [
       { day: "Monday – Thursday", time: "11:00 – 23:00" },
-      { day: "Friday", time: "11:00 – 23:30" },
-      { day: "Saturday", time: "11:00 – 23:30" },
+      { day: "Friday – Saturday", time: "11:00 – 23:30" },
       { day: "Sunday", time: "11:00 – 22:30" },
     ],
-    parking: "Street parking along Queensbury Station Parade; Queensbury Underground (Jubilee line) is a 1-minute walk.",
-    accessibility: "Step-free entrance and ground-floor dining. Please call ahead so we can reserve an accessible table.",
-    facilities: ["Dine-in", "Takeaway", "Delivery", "Family friendly", "Halal", "Outdoor tables"],
-    verified: true,
-    note: "Opening hours are indicative — please call to confirm before travelling.",
-    rating: { score: 4.8, count: 499 },
+    orderUrl: null,
+    parking:
+      "Street parking along Queensbury Station Parade. Queensbury Underground (Jubilee line) is a short walk away.",
+    accessibility: "Ground-floor dining. Please call ahead and we will reserve a suitable table.",
+    facilities: ["Dine-in", "Takeaway", "Family friendly", "Halal"],
   },
   {
     slug: "harrow",
@@ -55,36 +53,11 @@ export const branches: Branch[] = [
     mapsQuery: "Aysu, 229-231 Charlton Road, Harrow HA3 8HU",
     hours: [
       { day: "Monday – Thursday", time: "11:00 – 23:00" },
-      { day: "Friday", time: "11:00 – 23:30" },
-      { day: "Saturday", time: "11:00 – 23:30" },
+      { day: "Friday – Saturday", time: "11:00 – 23:30" },
       { day: "Sunday", time: "11:00 – 22:30" },
     ],
-    parking: "Local street parking on Charlton Road. Placeholder — parking details to be confirmed by the branch.",
-    accessibility: "Placeholder — accessibility details to be confirmed by the branch.",
-    facilities: ["Dine-in", "Takeaway", "Delivery", "Family friendly", "Halal"],
-    verified: true,
-    note: "Address and telephone taken from the Aysu menu. Opening hours, parking and accessibility are placeholder content pending confirmation.",
-  },
-  {
-    slug: "watford",
-    name: "Aysu — Watford",
-    shortName: "Watford",
-    addressLines: ["Watford High Street", "Watford, Hertfordshire"],
-    postcode: "WD17 2BS",
-    phone: "020 4559 9293",
-    email: "info@aysu.uk",
-    mapsQuery: "Aysu Turkish restaurant, Watford High Street, Watford WD17 2BS",
-    hours: [
-      { day: "Monday – Thursday", time: "11:00 – 23:00" },
-      { day: "Friday", time: "11:00 – 23:30" },
-      { day: "Saturday", time: "11:00 – 23:30" },
-      { day: "Sunday", time: "11:00 – 22:30" },
-    ],
-    parking: "Placeholder — parking details to be confirmed by the branch.",
-    accessibility: "Placeholder — accessibility details to be confirmed by the branch.",
-    facilities: ["Dine-in", "Takeaway", "Delivery", "Family friendly", "Halal"],
-    verified: false,
-    note: "Placeholder listing — full address, postcode, telephone and opening hours for the Watford branch to be confirmed by Aysu.",
+    orderUrl: null,
+    facilities: ["Dine-in", "Takeaway", "Family friendly", "Halal"],
   },
 ];
 

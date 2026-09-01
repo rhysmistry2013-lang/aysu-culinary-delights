@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { Accessibility, Car, MapPin, Phone, Star } from "lucide-react";
+import { Accessibility, Car, MapPin, Phone } from "lucide-react";
 import hero from "@/assets/hero-spread.jpg";
 import interior from "@/assets/interior.jpg";
 import shish from "@/assets/dish-lamb-shish.jpg";
@@ -7,6 +7,8 @@ import mezze from "@/assets/dish-mezze.jpg";
 import iskender from "@/assets/dish-iskender.jpg";
 import dessert from "@/assets/dessert.jpg";
 import { Reveal } from "@/components/reveal";
+import { BranchActionButton } from "@/components/branch-action";
+import { hoursDisclaimer } from "@/config/site";
 import {
   branches,
   getBranch,
@@ -27,14 +29,15 @@ export const Route = createFileRoute("/branches/$slug")({
       return { meta: [{ title: "Branch not found | Aysu" }, { name: "robots", content: "noindex" }] };
     }
     const b = loaderData.branch;
-    const title = `${b.name} | Turkish Restaurant in ${b.shortName}`;
-    const description = `Visit ${b.name} at ${b.addressLines.join(", ")}, ${b.postcode}. Opening hours, parking, accessibility, menu and directions.`;
+    const title = `${b.name} | Turkish Restaurant & Grill in ${b.shortName}`;
+    const description = `Aysu in ${b.shortName}: ${b.addressLines.join(", ")}, ${b.postcode}. Turkish kebabs, grills, mezze and breakfast. Address, phone, opening times, map and menu.`;
     return {
       meta: [
         { title },
         { name: "description", content: description },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
+        { property: "og:type", content: "website" },
       ],
     };
   },
@@ -56,7 +59,7 @@ function BranchNotFound() {
 
 const photos = [
   { src: interior, alt: "Dining room interior" },
-  { src: shish, alt: "Lamb shish from the charcoal grill" },
+  { src: shish, alt: "Lamb shish from the grill" },
   { src: mezze, alt: "Cold mezze platter" },
   { src: iskender, alt: "İskender kebab" },
   { src: dessert, alt: "Baklava and Turkish tea" },
@@ -72,7 +75,6 @@ function BranchPage() {
     name: b.name,
     servesCuisine: "Turkish",
     telephone: b.phone,
-    priceRange: "££",
     address: {
       "@type": "PostalAddress",
       streetAddress: b.addressLines[0],
@@ -80,22 +82,13 @@ function BranchPage() {
       postalCode: b.postcode,
       addressCountry: "GB",
     },
-    ...(b.rating
-      ? {
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: String(b.rating.score),
-            reviewCount: String(b.rating.count),
-          },
-        }
-      : {}),
   };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <section className="relative isolate flex min-h-[60dvh] items-end overflow-hidden bg-forest-deep">
+      <section className="relative isolate flex min-h-[55dvh] items-end overflow-hidden bg-forest-deep">
         <img
           src={hero}
           alt={`Food served at ${b.name}`}
@@ -104,25 +97,22 @@ function BranchPage() {
           className="absolute inset-0 -z-10 h-full w-full object-cover opacity-55"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-forest-deep via-forest-deep/60 to-transparent" />
-        <div className="mx-auto w-full max-w-7xl px-4 pb-14 pt-28 text-forest-foreground sm:px-6">
+        <div className="mx-auto w-full max-w-7xl px-4 pb-14 pt-24 text-forest-foreground sm:px-6">
           <p className="eyebrow">Aysu Restaurants</p>
-          <h1 className="mt-4 text-4xl tracking-tight sm:text-6xl">{b.name}</h1>
+          <h1 className="mt-4 text-3xl tracking-tight sm:text-5xl md:text-6xl">{b.name}</h1>
           <p className="mt-4 max-w-xl text-forest-foreground/80">
             {b.addressLines.join(", ")}, {b.postcode}
           </p>
-          {b.rating ? (
-            <p className="mt-3 flex items-center gap-2 text-sm text-gold">
-              <Star className="h-4 w-4 fill-gold" aria-hidden="true" />
-              {b.rating.score} from {b.rating.count} Google reviews
-            </p>
-          ) : null}
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/menu" className="rounded-sm bg-gold px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold-foreground">
+            <Link to="/menu" className="rounded-sm bg-gold px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold-foreground transition-opacity hover:opacity-90">
               View menu
             </Link>
-            <Link to="/locations" className="rounded-sm border border-gold px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold hover:bg-gold/10">
-              Other branches
-            </Link>
+            <a
+              href={telHref(b.phone)}
+              className="rounded-sm border border-gold px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold transition-colors hover:bg-gold/10"
+            >
+              Call {b.phone}
+            </a>
           </div>
         </div>
       </section>
@@ -134,7 +124,7 @@ function BranchPage() {
               title={`Map showing ${b.name}`}
               src={mapsEmbedUrl(b.mapsQuery)}
               loading="lazy"
-              className="h-[420px] w-full rounded-sm border-0"
+              className="h-[320px] w-full rounded-sm border-0 md:h-[420px]"
               referrerPolicy="no-referrer-when-downgrade"
             />
           </Reveal>
@@ -162,16 +152,25 @@ function BranchPage() {
                 </div>
               ))}
             </dl>
+            <p className="mt-2 text-xs text-muted-foreground">{hoursDisclaimer}</p>
 
-            <h3 className="mt-8 flex items-center gap-2 font-display text-xl text-gold">
-              <Car className="h-4 w-4" aria-hidden="true" /> Parking
-            </h3>
-            <p className="mt-2 text-sm text-muted-foreground">{b.parking}</p>
+            {b.parking ? (
+              <>
+                <h3 className="mt-8 flex items-center gap-2 font-display text-xl text-gold">
+                  <Car className="h-4 w-4" aria-hidden="true" /> Parking
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">{b.parking}</p>
+              </>
+            ) : null}
 
-            <h3 className="mt-6 flex items-center gap-2 font-display text-xl text-gold">
-              <Accessibility className="h-4 w-4" aria-hidden="true" /> Accessibility
-            </h3>
-            <p className="mt-2 text-sm text-muted-foreground">{b.accessibility}</p>
+            {b.accessibility ? (
+              <>
+                <h3 className="mt-6 flex items-center gap-2 font-display text-xl text-gold">
+                  <Accessibility className="h-4 w-4" aria-hidden="true" /> Accessibility
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">{b.accessibility}</p>
+              </>
+            ) : null}
 
             <ul className="mt-6 flex flex-wrap gap-2">
               {b.facilities.map((f) => (
@@ -186,23 +185,23 @@ function BranchPage() {
                 href={mapsDirectionsUrl(b.mapsQuery)}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-sm bg-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold-foreground"
+                className="rounded-sm bg-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold-foreground transition-opacity hover:opacity-90"
               >
                 Directions
               </a>
-              <a
-                href={telHref(b.phone)}
-                className="rounded-sm border border-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold hover:bg-gold/10"
+              <BranchActionButton
+                mode="book"
+                className="rounded-sm border border-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold transition-colors hover:bg-gold/10"
               >
-                Call now
-              </a>
+                Book a table
+              </BranchActionButton>
+              <BranchActionButton
+                mode="order"
+                className="rounded-sm border border-border px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] transition-colors hover:border-gold/60"
+              >
+                Order now
+              </BranchActionButton>
             </div>
-
-            {b.note ? (
-              <p className="mt-6 rounded-sm border border-border bg-card p-4 text-xs italic text-muted-foreground">
-                {b.note}
-              </p>
-            ) : null}
           </Reveal>
         </div>
       </section>
@@ -213,42 +212,14 @@ function BranchPage() {
           <ul className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-5">
             {photos.map((p) => (
               <li key={p.alt}>
-                <img src={p.src} alt={p.alt} loading="lazy" className="h-44 w-full rounded-sm object-cover" />
+                <img src={p.src} alt={p.alt} loading="lazy" className="h-32 w-full rounded-sm object-cover md:h-44" />
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24">
-        <h2 className="text-3xl">Customer reviews</h2>
-        <p className="mt-3 text-sm text-muted-foreground">
-          Placeholder feed — ready to connect to the Google Reviews API for this branch.
-        </p>
-        <ul className="mt-8 grid gap-6 md:grid-cols-3">
-          {[
-            ["Multi Vitamins", "An absolute best experience from start to finish.", 5],
-            ["Jola Jolah", "Elegant and clean, yet comfortable and welcoming.", 5],
-            ["Anonymous guest", "Generous portions and lovely outdoor tables.", 5],
-          ].map(([name, text, stars]) => (
-            <li key={name as string} className="rounded-sm border border-border bg-card p-6">
-              <div className="flex gap-0.5" aria-label={`${stars} out of 5 stars`}>
-                {Array.from({ length: 5 }).map((_, s) => (
-                  <Star
-                    key={s}
-                    aria-hidden="true"
-                    className={`h-4 w-4 ${s < (stars as number) ? "fill-gold text-gold" : "text-muted-foreground/30"}`}
-                  />
-                ))}
-              </div>
-              <blockquote className="mt-3 text-sm text-muted-foreground">“{text as string}”</blockquote>
-              <p className="mt-3 text-sm font-semibold">{name as string}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <nav aria-label="Other branches" className="mx-auto max-w-7xl px-4 pb-20 sm:px-6">
+      <nav aria-label="Other branches" className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
         <h2 className="text-2xl">Other Aysu restaurants</h2>
         <ul className="mt-4 flex flex-wrap gap-3">
           {branches
@@ -258,7 +229,7 @@ function BranchPage() {
                 <Link
                   to="/branches/$slug"
                   params={{ slug: o.slug }}
-                  className="inline-block rounded-sm border border-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold hover:bg-gold/10"
+                  className="inline-block rounded-sm border border-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold transition-colors hover:bg-gold/10"
                 >
                   {o.shortName}
                 </Link>
