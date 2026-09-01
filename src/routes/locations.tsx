@@ -2,11 +2,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { MapPin, Phone } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
+import { BranchActionButton } from "@/components/branch-action";
+import { hoursDisclaimer } from "@/config/site";
 import { branches, mapsDirectionsUrl, mapsEmbedUrl, telHref } from "@/data/branches";
 
-const title = "Our Restaurants | Aysu Queensbury, Harrow & Watford";
+const title = "Locations | Aysu Turkish Restaurant in Queensbury & Harrow";
 const description =
-  "Find your nearest Aysu restaurant. Addresses, phone numbers, opening hours, maps and directions for our Queensbury, Harrow and Watford branches.";
+  "Aysu restaurant addresses, phone numbers, opening times, maps and directions for our Queensbury (HA8 5NN) and Harrow (HA3 8HU) branches.";
 
 export const Route = createFileRoute("/locations")({
   head: () => ({
@@ -15,6 +17,7 @@ export const Route = createFileRoute("/locations")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
     ],
   }),
   component: LocationsPage,
@@ -26,9 +29,9 @@ function LocationsPage() {
       <SectionHeading
         eyebrow="Locations"
         title="Find your nearest Aysu"
-        intro="Every branch serves the same charcoal-grill menu with its own daily specials."
+        intro="Two restaurants in North West London, both serving the full Aysu menu."
       />
-      <ul className="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+      <ul className="mt-14 grid gap-8 md:grid-cols-2">
         {branches.map((b, i) => (
           <li key={b.slug}>
             <Reveal delay={i * 0.08}>
@@ -37,7 +40,7 @@ function LocationsPage() {
                   title={`Map showing ${b.name}`}
                   src={mapsEmbedUrl(b.mapsQuery)}
                   loading="lazy"
-                  className="h-64 w-full border-0"
+                  className="h-56 w-full border-0 md:h-64"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
                 <div className="p-6">
@@ -62,26 +65,26 @@ function LocationsPage() {
                       </div>
                     ))}
                   </dl>
-                  {b.note ? <p className="mt-3 text-xs italic text-muted-foreground">{b.note}</p> : null}
+                  <p className="mt-2 text-xs text-muted-foreground">{hoursDisclaimer}</p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <a
                       href={mapsDirectionsUrl(b.mapsQuery)}
                       target="_blank"
                       rel="noreferrer"
-                      className="rounded-sm bg-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold-foreground"
+                      className="rounded-sm bg-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold-foreground transition-opacity hover:opacity-90"
                     >
                       Directions
                     </a>
                     <a
                       href={telHref(b.phone)}
-                      className="rounded-sm border border-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold hover:bg-gold/10"
+                      className="rounded-sm border border-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold transition-colors hover:bg-gold/10"
                     >
                       Call now
                     </a>
                     <Link
                       to="/branches/$slug"
                       params={{ slug: b.slug }}
-                      className="rounded-sm border border-border px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em]"
+                      className="rounded-sm border border-border px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] transition-colors hover:border-gold/60"
                     >
                       Branch details
                     </Link>
@@ -92,6 +95,21 @@ function LocationsPage() {
           </li>
         ))}
       </ul>
+
+      <div className="mt-12 flex flex-wrap justify-center gap-3">
+        <BranchActionButton
+          mode="book"
+          className="rounded-sm bg-gold px-7 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold-foreground transition-opacity hover:opacity-90"
+        >
+          Book a table
+        </BranchActionButton>
+        <BranchActionButton
+          mode="order"
+          className="rounded-sm border border-gold px-7 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold transition-colors hover:bg-gold/10"
+        >
+          Order now
+        </BranchActionButton>
+      </div>
     </div>
   );
 }
