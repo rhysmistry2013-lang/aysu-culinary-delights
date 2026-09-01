@@ -1,20 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { MapPin, Phone, Star } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import hero from "@/assets/hero-spread.jpg";
 import interior from "@/assets/interior.jpg";
 import mezze from "@/assets/dish-mezze.jpg";
 import shish from "@/assets/dish-lamb-shish.jpg";
 import iskender from "@/assets/dish-iskender.jpg";
-import dessert from "@/assets/dessert.jpg";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
+import { BranchActionButton } from "@/components/branch-action";
+import { hoursDisclaimer } from "@/config/site";
 import { branches, mapsDirectionsUrl, mapsEmbedUrl, telHref } from "@/data/branches";
 import { gbp } from "@/lib/format";
 
-const title = "Aysu Restaurants | Authentic Turkish Dining in London";
+const title = "Aysu Restaurant | Turkish Restaurant in Harrow & Queensbury";
 const description =
-  "Charcoal-grilled kebabs, fresh mezze and all-day Turkish breakfast at Aysu in Queensbury, Harrow and Watford. View menus, find your nearest branch and get directions.";
+  "Aysu is a Turkish restaurant and grill in Harrow and Queensbury. Kebabs, grills, starters, salads, sides and desserts. View the menu, find us or call to order.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,37 +24,16 @@ export const Route = createFileRoute("/")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
     ],
   }),
   component: Index,
 });
 
 const featured = [
-  { name: "Mix Grill", price: 21.5, image: shish, blurb: "Lamb shish, chicken shish and lamb kofte from the charcoal grill." },
+  { name: "Mix Grill", price: 21.5, image: shish, blurb: "Lamb shish, chicken shish and lamb kofte from the grill." },
   { name: "İskender", price: 15.5, image: iskender, blurb: "Doner on warm bread with yoghurt and tomato butter sauce." },
   { name: "Mix Cold Starter", price: 14.5, image: mezze, blurb: "Hummus, cacık, potato salad, tarama and aubergine salad." },
-  { name: "Baklava & Çay", image: dessert, blurb: "Pistachio baklava with Turkish tea. Price to be confirmed." },
-];
-
-const reviews = [
-  {
-    name: "Multi Vitamins",
-    meta: "Local Guide · 270 reviews",
-    text: "We had an absolute best experience from start to finish. Aysu Restaurant team looked after us all evening.",
-    stars: 5,
-  },
-  {
-    name: "Jola Jolah",
-    meta: "4 reviews",
-    text: "From the moment we stepped through the doors we were greeted with such warmth. Elegant and clean, yet comfortable and welcoming.",
-    stars: 5,
-  },
-  {
-    name: "Rajashekar K",
-    meta: "Local Guide · 39 reviews",
-    text: "Friendly staff and a lively room. The sauce was a little tomato-dominant for my taste, but the service was attentive.",
-    stars: 3,
-  },
 ];
 
 const gallery = [
@@ -62,18 +42,15 @@ const gallery = [
   { src: shish, alt: "Lamb shish skewer with bulgur rice" },
   { src: mezze, alt: "Cold mezze platter with hummus and flatbread" },
   { src: iskender, alt: "İskender kebab with yoghurt and tomato butter sauce" },
-  { src: dessert, alt: "Baklava and Turkish tea on a gold plate" },
 ];
 
 function Index() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Restaurant",
-    name: "Aysu Restaurants",
+    name: "Aysu Restaurant",
     servesCuisine: "Turkish",
-    priceRange: "££",
-    url: "https://aysu.uk",
-    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", reviewCount: "499" },
+    url: "https://aysu-culinary-delights.lovable.app",
     address: branches.map((b) => ({
       "@type": "PostalAddress",
       streetAddress: b.addressLines[0],
@@ -88,10 +65,10 @@ function Index() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Hero */}
-      <section className="relative isolate flex min-h-[92dvh] items-center justify-center overflow-hidden bg-forest-deep">
+      <section className="relative isolate flex min-h-[88dvh] items-center justify-center overflow-hidden bg-forest-deep">
         <img
           src={hero}
-          alt="Turkish charcoal grill and mezze sharing spread at Aysu"
+          alt="Turkish grill and mezze sharing spread at Aysu"
           width={1920}
           height={1280}
           className="absolute inset-0 -z-10 h-full w-full object-cover opacity-60"
@@ -104,42 +81,49 @@ function Index() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Queensbury · Harrow · Watford
+            Queensbury · Harrow
           </motion.p>
           <motion.h1
-            className="mt-6 text-4xl leading-[1.05] tracking-tight sm:text-6xl md:text-7xl"
-            initial={{ opacity: 0, y: 24 }}
+            className="mt-6 text-4xl leading-[1.1] tracking-tight sm:text-6xl"
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            Authentic Turkish Cuisine, Served with Passion.
+            Aysu Restaurant
           </motion.h1>
           <motion.p
             className="mx-auto mt-6 max-w-xl text-base text-forest-foreground/80 sm:text-lg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.9, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.25 }}
           >
-            Discover the flavours of Aysu across all of our locations.
+            A selection of Turkish-inspired dishes, grilled favourites, starters, sides and
+            desserts — served in Queensbury and Harrow.
           </motion.p>
           <motion.div
-            className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
-            initial={{ opacity: 0, y: 16 }}
+            className="mt-10 grid gap-3 sm:flex sm:flex-wrap sm:justify-center"
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.45 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
           >
             <Link
               to="/menu"
-              className="w-full rounded-sm bg-gold px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold-foreground transition-opacity hover:opacity-90 sm:w-auto"
+              className="rounded-sm bg-gold px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold-foreground transition-opacity hover:opacity-90"
             >
               View menu
             </Link>
-            <Link
-              to="/locations"
-              className="w-full rounded-sm border border-gold px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold transition-colors hover:bg-gold/10 sm:w-auto"
+            <BranchActionButton
+              mode="book"
+              className="w-full rounded-sm border border-gold px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold transition-colors hover:bg-gold hover:text-gold-foreground sm:w-auto"
             >
-              Find your nearest restaurant
-            </Link>
+              Book a table
+            </BranchActionButton>
+            <BranchActionButton
+              mode="order"
+              className="w-full rounded-sm border border-forest-foreground/40 px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-forest-foreground transition-colors hover:border-gold hover:text-gold sm:w-auto"
+            >
+              Order now
+            </BranchActionButton>
           </motion.div>
         </div>
       </section>
@@ -150,7 +134,7 @@ function Index() {
           <Reveal>
             <img
               src={interior}
-              alt="The Aysu dining room, with green velvet seating and warm gold lighting"
+              alt="The Aysu dining room, with green seating and warm lighting"
               loading="lazy"
               width={1536}
               height={1024}
@@ -160,16 +144,16 @@ function Index() {
           <Reveal delay={0.1}>
             <SectionHeading
               align="left"
-              eyebrow="Our story"
-              title="A family table, set in North West London"
-              intro="Aysu began with a simple idea: cook the food we grew up with, exactly as it should be. Charcoal grills lit every morning, dough proved on site, mezze made fresh through the day."
+              eyebrow="About Aysu"
+              title="Turkish dining in North West London"
+              intro="Discover Aysu Restaurant, serving a selection of Turkish-inspired dishes, grilled favourites, starters, sides and desserts. Visit one of our locations or explore the menu online."
             />
             <dl className="mt-8 grid gap-6 sm:grid-cols-2">
               {[
-                ["Fresh ingredients", "Produce delivered daily; nothing sits waiting. Meat is halal and sourced from trusted butchers."],
-                ["Authentic recipes", "Adana, İskender, Ali Nazik and çılbır made the traditional way — no shortcuts."],
-                ["Family friendly", "Highchairs, children's plates and space for large tables and celebrations."],
-                ["Genuine service", "Rated 4.8 from 499 Google reviews for warm, attentive hospitality."],
+                ["Two restaurants", "Queensbury (HA8 5NN) and Harrow (HA3 8HU)."],
+                ["Halal menu", "Meat dishes on our menu are halal."],
+                ["Dine in or takeaway", "Eat with us or call your local branch to order."],
+                ["Groups welcome", "Space for families and larger tables — please call ahead."],
               ].map(([term, def]) => (
                 <div key={term}>
                   <dt className="font-display text-xl text-gold">{term}</dt>
@@ -185,13 +169,9 @@ function Index() {
       <section className="bg-secondary/60 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal>
-            <SectionHeading
-              eyebrow="From the grill"
-              title="Featured dishes"
-              intro="A few of the plates our regulars come back for."
-            />
+            <SectionHeading eyebrow="From the grill" title="From our menu" />
           </Reveal>
-          <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((dish, i) => (
               <li key={dish.name}>
                 <Reveal delay={i * 0.08}>
@@ -207,9 +187,7 @@ function Index() {
                     <div className="p-5">
                       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-3">
                         <h3 className="min-w-0 text-xl">{dish.name}</h3>
-                        <span className="shrink-0 font-display text-lg text-gold">
-                          {dish.price != null ? gbp(dish.price) : "—"}
-                        </span>
+                        <span className="shrink-0 font-display text-lg text-gold">{gbp(dish.price)}</span>
                       </div>
                       <p className="mt-2 text-sm text-muted-foreground">{dish.blurb}</p>
                     </div>
@@ -221,7 +199,7 @@ function Index() {
           <div className="mt-12 text-center">
             <Link
               to="/menu"
-              className="inline-block rounded-sm border border-gold px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold hover:bg-gold hover:text-gold-foreground"
+              className="inline-block rounded-sm border border-gold px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold transition-colors hover:bg-gold hover:text-gold-foreground"
             >
               See the full menu
             </Link>
@@ -235,10 +213,10 @@ function Index() {
           <SectionHeading
             eyebrow="Find us"
             title="Our restaurants"
-            intro="Three kitchens, one standard. Choose a branch for menus, opening times and directions."
+            intro="Choose a branch for the address, opening times and directions."
           />
         </Reveal>
-        <ul className="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <ul className="mt-14 grid gap-8 md:grid-cols-2">
           {branches.map((b, i) => (
             <li key={b.slug}>
               <Reveal delay={i * 0.1}>
@@ -272,25 +250,26 @@ function Index() {
                         </div>
                       ))}
                     </dl>
+                    <p className="mt-2 text-xs text-muted-foreground">{hoursDisclaimer}</p>
                     <div className="mt-6 flex flex-wrap gap-3">
                       <a
                         href={mapsDirectionsUrl(b.mapsQuery)}
                         target="_blank"
                         rel="noreferrer"
-                        className="rounded-sm bg-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold-foreground"
+                        className="rounded-sm bg-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold-foreground transition-opacity hover:opacity-90"
                       >
                         Directions
                       </a>
                       <a
                         href={telHref(b.phone)}
-                        className="rounded-sm border border-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold hover:bg-gold/10"
+                        className="rounded-sm border border-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold transition-colors hover:bg-gold/10"
                       >
                         Call now
                       </a>
                       <Link
                         to="/branches/$slug"
                         params={{ slug: b.slug }}
-                        className="rounded-sm border border-border px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em]"
+                        className="rounded-sm border border-border px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] transition-colors hover:border-gold/60"
                       >
                         Branch page
                       </Link>
@@ -303,53 +282,8 @@ function Index() {
         </ul>
       </section>
 
-      {/* Reviews */}
-      <section className="bg-forest-deep py-20 text-forest-foreground md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <Reveal>
-            <SectionHeading
-              eyebrow="4.8 ★ from 499 Google reviews"
-              title="What our guests say"
-              intro="Live Google Reviews integration is ready to be connected — the quotes below are taken from our current listing."
-            />
-          </Reveal>
-          <ul className="mt-14 grid gap-6 md:grid-cols-3">
-            {reviews.map((r, i) => (
-              <li key={r.name}>
-                <Reveal delay={i * 0.08}>
-                  <figure className="h-full rounded-sm border border-gold/20 bg-forest p-6">
-                    <div className="flex items-center gap-3">
-                      <span
-                        aria-hidden="true"
-                        className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-gold/20 font-display text-lg text-gold"
-                      >
-                        {r.name.charAt(0)}
-                      </span>
-                      <div className="min-w-0">
-                        <p className="truncate text-sm font-semibold">{r.name}</p>
-                        <p className="truncate text-xs text-forest-foreground/60">{r.meta}</p>
-                      </div>
-                    </div>
-                    <div className="mt-4 flex gap-0.5" aria-label={`${r.stars} out of 5 stars`}>
-                      {Array.from({ length: 5 }).map((_, s) => (
-                        <Star
-                          key={s}
-                          aria-hidden="true"
-                          className={`h-4 w-4 ${s < r.stars ? "fill-gold text-gold" : "text-forest-foreground/25"}`}
-                        />
-                      ))}
-                    </div>
-                    <blockquote className="mt-4 text-sm text-forest-foreground/80">“{r.text}”</blockquote>
-                  </figure>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
       {/* Gallery */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28">
+      <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 md:pb-28">
         <Reveal>
           <SectionHeading eyebrow="Gallery" title="Inside Aysu" />
         </Reveal>
@@ -357,12 +291,7 @@ function Index() {
           {gallery.map((g, i) => (
             <li key={g.alt} className={i === 0 ? "col-span-2 row-span-2" : ""}>
               <Reveal delay={i * 0.05}>
-                <img
-                  src={g.src}
-                  alt={g.alt}
-                  loading="lazy"
-                  className="h-full w-full rounded-sm object-cover"
-                />
+                <img src={g.src} alt={g.alt} loading="lazy" className="h-full w-full rounded-sm object-cover" />
               </Reveal>
             </li>
           ))}
@@ -370,7 +299,7 @@ function Index() {
         <div className="mt-12 text-center">
           <Link
             to="/gallery"
-            className="inline-block rounded-sm border border-gold px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold hover:bg-gold hover:text-gold-foreground"
+            className="inline-block rounded-sm border border-gold px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold transition-colors hover:bg-gold hover:text-gold-foreground"
           >
             View full gallery
           </Link>
