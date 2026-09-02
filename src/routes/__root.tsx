@@ -125,6 +125,19 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+/**
+ * Internal-only strip shown while `siteStatus` is "concept" (see src/config/site.ts).
+ * Set siteStatus to "live" to hide it completely.
+ */
+function ConceptNotice() {
+  if (siteStatus !== "concept") return null;
+  return (
+    <div className="bg-gold px-4 py-2 text-center text-[11px] uppercase tracking-[0.16em] text-gold-foreground">
+      Concept preview — awaiting confirmation: {awaitingConfirmation.join(" · ")}
+    </div>
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
