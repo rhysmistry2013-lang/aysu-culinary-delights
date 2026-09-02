@@ -1,32 +1,40 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Twitter } from "lucide-react";
-import { useState } from "react";
-import { toast } from "sonner";
+import { Mail } from "lucide-react";
 import { branches, telHref } from "@/data/branches";
+import { contactEmail, socialLinks } from "@/config/site";
 
 export function SiteFooter() {
-  const [email, setEmail] = useState("");
-
   return (
     <footer className="border-t border-gold/20 bg-forest-deep text-forest-foreground">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
         <div>
           <span className="font-display text-3xl tracking-[0.35em] text-gold">AYSU</span>
           <p className="mt-4 max-w-xs text-sm text-forest-foreground/70">
-            Indulge in authentic Turkish flavours. Charcoal grills, mezze and warm hospitality across
-            North West London.
+            Turkish-inspired dishes, grilled favourites, starters, sides and desserts in Queensbury
+            and Harrow.
           </p>
-          <div className="mt-5 flex gap-3">
-            <a href="https://instagram.com" aria-label="Aysu on Instagram" className="rounded-full border border-gold/30 p-2 text-gold hover:bg-gold/10">
-              <Instagram className="h-4 w-4" aria-hidden="true" />
+          <p className="mt-4 flex items-center gap-2 text-sm text-forest-foreground/70">
+            <Mail className="h-4 w-4 text-gold" aria-hidden="true" />
+            <a href={`mailto:${contactEmail}`} className="hover:text-gold">
+              {contactEmail}
             </a>
-            <a href="https://facebook.com" aria-label="Aysu on Facebook" className="rounded-full border border-gold/30 p-2 text-gold hover:bg-gold/10">
-              <Facebook className="h-4 w-4" aria-hidden="true" />
-            </a>
-            <a href="https://x.com" aria-label="Aysu on X" className="rounded-full border border-gold/30 p-2 text-gold hover:bg-gold/10">
-              <Twitter className="h-4 w-4" aria-hidden="true" />
-            </a>
-          </div>
+          </p>
+          {socialLinks.length ? (
+            <ul className="mt-5 flex gap-3">
+              {socialLinks.map((s) => (
+                <li key={s.href}>
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-full border border-gold/30 px-3 py-1.5 text-xs text-gold hover:bg-gold/10"
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
 
         <div>
@@ -53,7 +61,9 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-sm text-forest-foreground/75">
             {(
               [
-                { to: "/menu", label: "Menus" },
+                { to: "/menu", label: "Menu" },
+                { to: "/locations", label: "Locations" },
+                { to: "/gallery", label: "Gallery" },
                 { to: "/faq", label: "FAQ" },
                 { to: "/contact", label: "Contact" },
                 { to: "/privacy", label: "Privacy Policy" },
@@ -69,45 +79,10 @@ export function SiteFooter() {
             ))}
           </ul>
         </div>
-
-        <div>
-          <h2 className="eyebrow">Newsletter</h2>
-          <p className="mt-4 text-sm text-forest-foreground/70">
-            Seasonal specials, events and offers — straight to your inbox.
-          </p>
-          <form
-            className="mt-4 flex flex-col gap-2 sm:flex-row"
-            onSubmit={(e) => {
-              e.preventDefault();
-              toast.success("Thanks — you're on the list.");
-              setEmail("");
-            }}
-          >
-            <label htmlFor="newsletter-email" className="sr-only">
-              Email address
-            </label>
-            <input
-              id="newsletter-email"
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@example.com"
-              className="min-w-0 flex-1 rounded-sm border border-gold/30 bg-transparent px-3 py-3 text-sm text-forest-foreground placeholder:text-forest-foreground/40"
-            />
-            <button
-              type="submit"
-              className="shrink-0 rounded-sm bg-gold px-4 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-gold-foreground"
-            >
-              Sign up
-            </button>
-          </form>
-        </div>
       </div>
 
       <div className="border-t border-gold/15 px-4 py-6 text-center text-xs text-forest-foreground/50 sm:px-6">
-        © {new Date().getFullYear()} Aysu Restaurants. All rights reserved. Some branch details are
-        placeholder content pending confirmation.
+        © {new Date().getFullYear()} Aysu Restaurant. All rights reserved.
       </div>
     </footer>
   );
