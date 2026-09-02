@@ -90,6 +90,20 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
+          <div className="mx-auto grid max-w-7xl gap-2 px-4 pb-4 pt-2 sm:px-6">
+            <BranchActionButton
+              mode="book"
+              className="w-full rounded-sm border border-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-gold"
+            >
+              Book a table
+            </BranchActionButton>
+            <BranchActionButton
+              mode="order"
+              className="w-full rounded-sm bg-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-gold-foreground"
+            >
+              Order now
+            </BranchActionButton>
+          </div>
         </nav>
       ) : null}
     </header>
