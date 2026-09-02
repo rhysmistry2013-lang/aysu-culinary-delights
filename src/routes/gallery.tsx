@@ -8,9 +8,9 @@ import dessert from "@/assets/dessert.jpg";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
-const title = "Gallery | Aysu Restaurants";
+const title = "Gallery | Aysu Turkish Restaurant, Harrow & Queensbury";
 const description =
-  "Photographs of Aysu: charcoal-grilled food, mezze, desserts, drinks, our dining rooms and family tables.";
+  "Photographs of Aysu: grilled dishes, starters, desserts, drinks and our dining rooms in Harrow and Queensbury.";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -37,7 +37,7 @@ const groups = [
     heading: "Mezze & starters",
     items: [
       { src: mezze, alt: "Cold mezze platter with hummus, cacık and flatbread" },
-      { src: hero, alt: "Copper tray of kofte, lamb chops and grilled peppers" },
+      { src: interior, alt: "Table set for dinner in the Aysu dining room" },
     ],
   },
   {
