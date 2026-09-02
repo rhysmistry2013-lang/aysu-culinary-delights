@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu as MenuIcon, X } from "lucide-react";
 import { useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { BranchActionButton } from "@/components/branch-action";
 
 const links = [
   { to: "/menu", label: "Menu" },
