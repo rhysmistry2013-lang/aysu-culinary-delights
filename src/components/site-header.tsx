@@ -47,6 +47,18 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center justify-end gap-2">
+          <BranchActionButton
+            mode="book"
+            className="hidden rounded-sm border border-gold px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-gold transition-colors hover:bg-gold hover:text-gold-foreground lg:inline-flex"
+          >
+            Book a table
+          </BranchActionButton>
+          <BranchActionButton
+            mode="order"
+            className="hidden rounded-sm bg-gold px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-foreground transition-opacity hover:opacity-90 lg:inline-flex"
+          >
+            Order now
+          </BranchActionButton>
           <ThemeToggle />
           <button
             type="button"
