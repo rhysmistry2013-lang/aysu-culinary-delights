@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { toast } from "sonner";
 import { SectionHeading } from "@/components/section-heading";
 import { branches, mapsEmbedUrl, telHref } from "@/data/branches";
+import { contactEmail, hoursDisclaimer } from "@/config/site";
 
-const title = "Contact Us | Aysu Restaurants";
+const title = "Contact | Aysu Turkish Restaurant, Harrow & Queensbury";
 const description =
-  "Contact Aysu Restaurants: telephone numbers, email, every branch address, opening hours, an interactive map and our enquiry form.";
+  "Contact Aysu Restaurant: telephone numbers, email address, branch addresses in Harrow and Queensbury, opening times and maps.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -30,9 +30,20 @@ function ContactPage() {
         <form
           className="rounded-sm border border-border bg-card p-6 sm:p-8"
           onSubmit={(e) => {
+            // No mail server is connected yet: open the guest's email client
+            // addressed to the restaurant so nothing is silently lost.
             e.preventDefault();
-            e.currentTarget.reset();
-            toast.success("Thanks — we'll be in touch shortly.");
+            const form = new FormData(e.currentTarget);
+            const body = [
+              `Name: ${form.get("name")}`,
+              `Email: ${form.get("email")}`,
+              `Telephone: ${form.get("phone") || "-"}`,
+              "",
+              String(form.get("message") ?? ""),
+            ].join("\n");
+            window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(
+              "Website enquiry",
+            )}&body=${encodeURIComponent(body)}`;
           }}
         >
           <div>
@@ -57,13 +68,16 @@ function ContactPage() {
           >
             Send enquiry
           </button>
+          <p className="mt-3 text-xs text-muted-foreground">
+            This opens your email app with the message ready to send to {contactEmail}.
+          </p>
         </form>
 
         <div>
           <p className="text-sm text-muted-foreground">
             Email:{" "}
-            <a href="mailto:info@aysu.uk" className="text-gold hover:underline">
-              info@aysu.uk
+            <a href={`mailto:${contactEmail}`} className="text-gold hover:underline">
+              {contactEmail}
             </a>
           </p>
           <ul className="mt-8 space-y-8">
@@ -84,6 +98,7 @@ function ContactPage() {
                     </div>
                   ))}
                 </dl>
+                <p className="mt-2 text-xs text-muted-foreground">{hoursDisclaimer}</p>
                 <iframe
                   title={`Map showing ${b.name}`}
                   src={mapsEmbedUrl(b.mapsQuery)}

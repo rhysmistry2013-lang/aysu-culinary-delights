@@ -187,7 +187,7 @@ export function MenuBrowser({ branchName }: { branchName?: string }) {
                   {item.name}
                 </h3>
                 <span className="shrink-0 font-display text-lg text-gold">
-                  {item.price != null ? gbp(item.price) : "—"}
+                  {item.price != null ? gbp(item.price) : null}
                   {item.priceLarge != null ? (
                     <span className="block text-xs text-muted-foreground">
                       large {gbp(item.priceLarge)}
@@ -202,8 +202,8 @@ export function MenuBrowser({ branchName }: { branchName?: string }) {
                 {item.allergens.length ? item.allergens.join(", ") : "None declared"}
               </p>
               {item.price == null ? (
-                <p className="mt-auto pt-2 text-xs italic text-muted-foreground">
-                  Placeholder item — price to be confirmed by the branch.
+                <p className="mt-auto pt-2 text-xs text-muted-foreground">
+                  Please ask in the restaurant for today's price.
                 </p>
               ) : null}
             </div>

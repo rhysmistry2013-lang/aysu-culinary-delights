@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu as MenuIcon, X } from "lucide-react";
 import { useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { BranchActionButton } from "@/components/branch-action";
 
 const links = [
   { to: "/menu", label: "Menu" },
@@ -47,6 +48,18 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center justify-end gap-2">
+          <BranchActionButton
+            mode="book"
+            className="hidden rounded-sm border border-gold px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-gold transition-colors hover:bg-gold hover:text-gold-foreground lg:inline-flex"
+          >
+            Book a table
+          </BranchActionButton>
+          <BranchActionButton
+            mode="order"
+            className="hidden rounded-sm bg-gold px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-foreground transition-opacity hover:opacity-90 lg:inline-flex"
+          >
+            Order now
+          </BranchActionButton>
           <ThemeToggle />
           <button
             type="button"
@@ -77,6 +90,20 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
+          <div className="mx-auto grid max-w-7xl gap-2 px-4 pb-4 pt-2 sm:px-6">
+            <BranchActionButton
+              mode="book"
+              className="w-full rounded-sm border border-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-gold"
+            >
+              Book a table
+            </BranchActionButton>
+            <BranchActionButton
+              mode="order"
+              className="w-full rounded-sm bg-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-gold-foreground"
+            >
+              Order now
+            </BranchActionButton>
+          </div>
         </nav>
       ) : null}
     </header>

@@ -179,17 +179,17 @@ export const menu: MenuItem[] = [
   { id: id(), name: "Spinach Omelette", description: "Three-egg omelette with sautéed spinach and herbs, served with chips and salad.", price: 9.5, category: "Omelettes", diets: V, spice: 0, allergens: ["Egg"] },
   { id: id(), name: "Turkish Omelette (Sucuk)", description: "Three-egg omelette with Turkish sausage, served with chips and salad.", price: 10.9, category: "Omelettes", diets: H, spice: 1, allergens: ["Egg"] },
 
-  // Desserts — placeholder pricing
-  { id: id(), name: "Baklava", description: "Layered filo pastry with pistachio and syrup. Placeholder — price to be confirmed.", category: "Desserts", diets: V, spice: 0, allergens: ["Gluten", "Nuts", "Milk"], image: "dessert" },
-  { id: id(), name: "Künefe", description: "Shredded pastry with melted cheese and syrup, served warm. Placeholder — price to be confirmed.", category: "Desserts", diets: V, spice: 0, allergens: ["Gluten", "Milk"] },
-  { id: id(), name: "Tiramisu Cake", description: "Classic tiramisu, listed as a customer favourite. Placeholder — price to be confirmed.", category: "Desserts", diets: V, spice: 0, allergens: ["Gluten", "Egg", "Milk"], popular: true },
+  // Desserts — prices to be added by Aysu (leave `price` undefined until confirmed)
+  { id: id(), name: "Baklava", description: "Layered filo pastry with pistachio and syrup.", category: "Desserts", diets: V, spice: 0, allergens: ["Gluten", "Nuts", "Milk"], image: "dessert" },
+  { id: id(), name: "Künefe", description: "Shredded pastry with melted cheese and syrup, served warm.", category: "Desserts", diets: V, spice: 0, allergens: ["Gluten", "Milk"] },
+  { id: id(), name: "Tiramisu Cake", description: "Classic tiramisu.", category: "Desserts", diets: V, spice: 0, allergens: ["Gluten", "Egg", "Milk"], popular: true },
 
-  // Drinks — placeholder pricing
-  { id: id(), name: "Turkish Tea", description: "Traditional çay served in a tulip glass. Placeholder — price to be confirmed.", category: "Drinks", diets: VG, spice: 0, allergens: [] },
-  { id: id(), name: "Turkish Coffee", description: "Finely ground coffee brewed in a cezve. Placeholder — price to be confirmed.", category: "Drinks", diets: VG, spice: 0, allergens: [] },
-  { id: id(), name: "Ayran", description: "Chilled salted yoghurt drink. Placeholder — price to be confirmed.", category: "Drinks", diets: V, spice: 0, allergens: ["Milk"] },
-  { id: id(), name: "Fresh Juice", description: "Freshly squeezed seasonal juice. Placeholder — price to be confirmed.", category: "Drinks", diets: VG, spice: 0, allergens: [] },
-  { id: id(), name: "Espresso Martini", description: "House cocktail, listed as a customer favourite. Placeholder — price to be confirmed.", category: "Drinks", diets: [], spice: 0, allergens: [] },
+  // Drinks — prices to be added by Aysu (leave `price` undefined until confirmed)
+  { id: id(), name: "Turkish Tea", description: "Traditional çay served in a tulip glass.", category: "Drinks", diets: VG, spice: 0, allergens: [] },
+  { id: id(), name: "Turkish Coffee", description: "Finely ground coffee brewed in a cezve.", category: "Drinks", diets: VG, spice: 0, allergens: [] },
+  { id: id(), name: "Ayran", description: "Chilled salted yoghurt drink.", category: "Drinks", diets: V, spice: 0, allergens: ["Milk"] },
+  { id: id(), name: "Fresh Juice", description: "Freshly squeezed seasonal juice.", category: "Drinks", diets: VG, spice: 0, allergens: [] },
+  { id: id(), name: "Espresso Martini", description: "House cocktail.", category: "Drinks", diets: [], spice: 0, allergens: [] },
 ];
 
 export const allergenList = [

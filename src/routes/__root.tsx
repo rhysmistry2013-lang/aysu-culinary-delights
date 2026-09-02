@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Toaster } from "@/components/ui/sonner";
+import { awaitingConfirmation, siteStatus } from "@/config/site";
 
 function NotFoundComponent() {
   return (
@@ -80,14 +81,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Aysu Restaurants | Authentic Turkish Dining in London" },
+      { title: "Aysu Restaurant | Turkish Restaurant in Harrow & Queensbury" },
       {
         name: "description",
         content:
-          "Charcoal-grilled kebabs, mezze and Turkish breakfast at Aysu Restaurants in Queensbury, Harrow and Watford. View menus, locations and directions.",
+          "Aysu is a Turkish restaurant and grill in Harrow and Queensbury, London. View the menu, find our locations and get directions.",
       },
-      { name: "author", content: "Aysu Restaurants" },
-      { property: "og:site_name", content: "Aysu Restaurants" },
+      { name: "author", content: "Aysu Restaurant" },
+      { property: "og:site_name", content: "Aysu Restaurant" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -125,12 +126,26 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+/**
+ * Internal-only strip shown while `siteStatus` is "concept" (see src/config/site.ts).
+ * Set siteStatus to "live" to hide it completely.
+ */
+function ConceptNotice() {
+  if (siteStatus !== "concept") return null;
+  return (
+    <div className="bg-gold px-4 py-2 text-center text-[11px] uppercase tracking-[0.16em] text-gold-foreground">
+      Concept preview — awaiting confirmation: {awaitingConfirmation.join(" · ")}
+    </div>
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex min-h-dvh flex-col">
+        <ConceptNotice />
         <SiteHeader />
         <main id="main" className="flex-1">
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}

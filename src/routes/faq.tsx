@@ -7,9 +7,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const title = "FAQ | Aysu Restaurants";
+const title = "FAQ | Aysu Turkish Restaurant, Harrow & Queensbury";
 const description =
-  "Answers on allergies, halal meat, parking, accessibility, catering and private dining at Aysu Restaurants.";
+  "Answers on allergies, halal meat, parking, accessibility, catering and private dining at Aysu Restaurant in Harrow and Queensbury.";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
@@ -26,8 +26,8 @@ export const Route = createFileRoute("/faq")({
 const faqs: [string, string][] = [
   ["Do you cater for allergies?", "Yes — tell your server before ordering. Our kitchens handle nuts, gluten, sesame, dairy, egg and shellfish, so we cannot guarantee an allergen-free dish, but we will always advise honestly."],
   ["Is your meat halal?", "Yes. All meat served at Aysu is halal, as shown on our menu."],
-  ["Is there parking?", "Queensbury has street parking on the Station Parade and is one minute from Queensbury Underground. Harrow and Watford parking details are to be confirmed."],
-  ["Do you host private dining or events?", "Placeholder — private dining and event packages to be confirmed. Please contact us with your requirements."],
+  ["Is there parking?", "Queensbury has street parking on the Station Parade and is one minute from Queensbury Underground. Charlton Road in Harrow has local street parking."],
+  ["Do you host private dining or events?", "Please contact your nearest branch with your date, party size and requirements and the team will let you know what they can arrange."],
 ];
 
 function FaqPage() {
