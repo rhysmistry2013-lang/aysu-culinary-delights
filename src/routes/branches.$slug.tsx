@@ -98,7 +98,7 @@ function BranchPage() {
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-forest-deep via-forest-deep/60 to-transparent" />
         <div className="mx-auto w-full max-w-7xl px-4 pb-14 pt-24 text-forest-foreground sm:px-6">
-          <p className="eyebrow">Aysu Restaurants</p>
+          <p className="eyebrow">Aysu Restaurant</p>
           <h1 className="mt-4 text-3xl tracking-tight sm:text-5xl md:text-6xl">{b.name}</h1>
           <p className="mt-4 max-w-xl text-forest-foreground/80">
             {b.addressLines.join(", ")}, {b.postcode}
