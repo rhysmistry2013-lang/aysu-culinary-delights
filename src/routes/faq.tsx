@@ -9,7 +9,7 @@ import {
 
 const title = "FAQ | Aysu Turkish Restaurant, Harrow & Queensbury";
 const description =
-  "Answers on allergies, halal meat, parking, accessibility, catering and private dining at Aysu Restaurant in Harrow and Queensbury.";
+  "Answers on allergies, parking, accessibility and private dining at Aysu Restaurant in Harrow and Queensbury.";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
