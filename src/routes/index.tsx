@@ -151,7 +151,7 @@ function Index() {
             <dl className="mt-8 grid gap-6 sm:grid-cols-2">
               {[
                 ["Two restaurants", "Queensbury (HA8 5NN) and Harrow (HA3 8HU)."],
-                ["Halal menu", "Meat dishes on our menu are halal."],
+                ["Full menu online", "Browse every dish and price before you visit."],
                 ["Dine in or takeaway", "Eat with us or call your local branch to order."],
                 ["Groups welcome", "Space for families and larger tables — please call ahead."],
               ].map(([term, def]) => (

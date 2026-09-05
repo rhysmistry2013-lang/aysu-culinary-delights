@@ -30,11 +30,6 @@ function Badges({ item }: { item: MenuItem }) {
           <WheatOff className="h-3 w-3" aria-hidden="true" /> Gluten free
         </span>
       ) : null}
-      {item.diets.includes("halal") ? (
-        <span className="rounded-full border border-border px-2 py-0.5 text-[10px] uppercase tracking-wider">
-          Halal
-        </span>
-      ) : null}
       {item.spice > 0 ? (
         <span
           className="inline-flex items-center gap-0.5 text-destructive"

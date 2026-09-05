@@ -48,7 +48,7 @@ const groups = [
     heading: "Our restaurants",
     items: [
       { src: interior, alt: "Aysu dining room with green velvet banquettes and brass lighting" },
-      { src: interior, alt: "Marble tables set for a family dinner at Aysu" },
+      { src: interior, alt: "Tables set for dinner at Aysu" },
     ],
   },
 ];
@@ -59,7 +59,7 @@ function GalleryPage() {
       <SectionHeading
         eyebrow="Gallery"
         title="A look inside Aysu"
-        intro="Food, drinks, desserts, interiors and family dining. Chef-at-work and event photography coming soon."
+        intro="Food, drinks, desserts and interiors from Aysu."
       />
       {groups.map((group, gi) => (
         <section key={group.heading} className="mt-16">
