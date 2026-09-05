@@ -40,7 +40,7 @@ export const branches: Branch[] = [
     parking:
       "Street parking along Queensbury Station Parade. Queensbury Underground (Jubilee line) is a short walk away.",
     accessibility: "Ground-floor dining. Please call ahead and we will reserve a suitable table.",
-    facilities: ["Dine-in", "Takeaway", "Family friendly", "Halal"],
+    facilities: ["Dine-in", "Takeaway"],
   },
   {
     slug: "harrow",
@@ -57,7 +57,7 @@ export const branches: Branch[] = [
       { day: "Sunday", time: "11:00 – 22:30" },
     ],
     orderUrl: null,
-    facilities: ["Dine-in", "Takeaway", "Family friendly", "Halal"],
+    facilities: ["Dine-in", "Takeaway"],
   },
 ];
 
