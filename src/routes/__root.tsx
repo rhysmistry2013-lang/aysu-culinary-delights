@@ -14,7 +14,6 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Toaster } from "@/components/ui/sonner";
-import { awaitingConfirmation, siteStatus } from "@/config/site";
 
 function NotFoundComponent() {
   return (
@@ -126,26 +125,12 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
-/**
- * Internal-only strip shown while `siteStatus` is "concept" (see src/config/site.ts).
- * Set siteStatus to "live" to hide it completely.
- */
-function ConceptNotice() {
-  if (siteStatus !== "concept") return null;
-  return (
-    <div className="bg-gold px-4 py-2 text-center text-[11px] uppercase tracking-[0.16em] text-gold-foreground">
-      Concept preview — awaiting confirmation: {awaitingConfirmation.join(" · ")}
-    </div>
-  );
-}
-
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex min-h-dvh flex-col">
-        <ConceptNotice />
         <SiteHeader />
         <main id="main" className="flex-1">
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}

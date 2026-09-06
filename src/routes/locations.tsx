@@ -3,12 +3,11 @@ import { MapPin, Phone } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { BranchActionButton } from "@/components/branch-action";
-import { hoursDisclaimer } from "@/config/site";
 import { branches, mapsDirectionsUrl, mapsEmbedUrl, telHref } from "@/data/branches";
 
 const title = "Locations | Aysu Turkish Restaurant in Queensbury & Harrow";
 const description =
-  "Aysu restaurant addresses, phone numbers, opening times, maps and directions for our Queensbury (HA8 5NN) and Harrow (HA3 8HU) branches.";
+  "Aysu restaurant addresses, phone numbers, maps and directions for our Queensbury (HA8 5NN) and Harrow (HA3 8HU) branches.";
 
 export const Route = createFileRoute("/locations")({
   head: () => ({
@@ -28,8 +27,8 @@ function LocationsPage() {
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24">
       <SectionHeading
         eyebrow="Locations"
-        title="Find your nearest Aysu"
-        intro="Two restaurants in North West London, both serving the full Aysu menu."
+        title="Find your nearest Aysu restaurant."
+        intro="Addresses, telephone numbers and directions for Queensbury and Harrow."
       />
       <ul className="mt-14 grid gap-8 md:grid-cols-2">
         {branches.map((b, i) => (
@@ -57,15 +56,6 @@ function LocationsPage() {
                       {b.phone}
                     </a>
                   </p>
-                  <dl className="mt-4 space-y-1 text-sm">
-                    {b.hours.map((h) => (
-                      <div key={h.day} className="flex justify-between gap-4 border-b border-border/60 py-1">
-                        <dt className="text-muted-foreground">{h.day}</dt>
-                        <dd>{h.time}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                  <p className="mt-2 text-xs text-muted-foreground">{hoursDisclaimer}</p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <a
                       href={mapsDirectionsUrl(b.mapsQuery)}

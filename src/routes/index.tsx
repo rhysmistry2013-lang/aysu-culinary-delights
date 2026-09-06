@@ -9,7 +9,6 @@ import iskender from "@/assets/dish-iskender.jpg";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { BranchActionButton } from "@/components/branch-action";
-import { hoursDisclaimer } from "@/config/site";
 import { branches, mapsDirectionsUrl, mapsEmbedUrl, telHref } from "@/data/branches";
 import { gbp } from "@/lib/format";
 
@@ -146,7 +145,7 @@ function Index() {
               align="left"
               eyebrow="About Aysu"
               title="Turkish dining in North West London"
-              intro="Discover Aysu Restaurant, serving a selection of Turkish-inspired dishes, grilled favourites, starters, sides and desserts. Visit one of our locations or explore the menu online."
+              intro="Discover Aysu Restaurant and explore a selection of dishes, grilled favourites, starters, sides and desserts across our locations."
             />
             <dl className="mt-8 grid gap-6 sm:grid-cols-2">
               {[
@@ -212,8 +211,8 @@ function Index() {
         <Reveal>
           <SectionHeading
             eyebrow="Find us"
-            title="Our restaurants"
-            intro="Choose a branch for the address, opening times and directions."
+            title="Find your nearest Aysu restaurant."
+            intro="Choose a branch for its address, telephone number and directions."
           />
         </Reveal>
         <ul className="mt-14 grid gap-8 md:grid-cols-2">
@@ -242,15 +241,6 @@ function Index() {
                         {b.phone}
                       </a>
                     </p>
-                    <dl className="mt-4 space-y-1 text-sm">
-                      {b.hours.map((h) => (
-                        <div key={h.day} className="flex justify-between gap-4 border-b border-border/60 py-1">
-                          <dt className="text-muted-foreground">{h.day}</dt>
-                          <dd>{h.time}</dd>
-                        </div>
-                      ))}
-                    </dl>
-                    <p className="mt-2 text-xs text-muted-foreground">{hoursDisclaimer}</p>
                     <div className="mt-6 flex flex-wrap gap-3">
                       <a
                         href={mapsDirectionsUrl(b.mapsQuery)}
