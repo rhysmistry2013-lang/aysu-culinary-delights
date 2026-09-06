@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { Accessibility, Car, MapPin, Phone } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import hero from "@/assets/hero-spread.jpg";
 import interior from "@/assets/interior.jpg";
 import shish from "@/assets/dish-lamb-shish.jpg";
@@ -8,7 +8,6 @@ import iskender from "@/assets/dish-iskender.jpg";
 import dessert from "@/assets/dessert.jpg";
 import { Reveal } from "@/components/reveal";
 import { BranchActionButton } from "@/components/branch-action";
-import { hoursDisclaimer } from "@/config/site";
 import {
   branches,
   getBranch,
@@ -30,7 +29,7 @@ export const Route = createFileRoute("/branches/$slug")({
     }
     const b = loaderData.branch;
     const title = `${b.name} | Turkish Restaurant & Grill in ${b.shortName}`;
-    const description = `Aysu in ${b.shortName}: ${b.addressLines.join(", ")}, ${b.postcode}. Turkish kebabs, grills, mezze and breakfast. Address, phone, opening times, map and menu.`;
+    const description = `Aysu in ${b.shortName}: ${b.addressLines.join(", ")}, ${b.postcode}. View the address, telephone number, map and menu.`;
     return {
       meta: [
         { title },
@@ -142,35 +141,6 @@ function BranchPage() {
                 {b.phone}
               </a>
             </p>
-
-            <h3 className="mt-8 font-display text-xl text-gold">Opening times</h3>
-            <dl className="mt-3 space-y-1 text-sm">
-              {b.hours.map((h) => (
-                <div key={h.day} className="flex justify-between gap-4 border-b border-border/60 py-1.5">
-                  <dt className="text-muted-foreground">{h.day}</dt>
-                  <dd>{h.time}</dd>
-                </div>
-              ))}
-            </dl>
-            <p className="mt-2 text-xs text-muted-foreground">{hoursDisclaimer}</p>
-
-            {b.parking ? (
-              <>
-                <h3 className="mt-8 flex items-center gap-2 font-display text-xl text-gold">
-                  <Car className="h-4 w-4" aria-hidden="true" /> Parking
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground">{b.parking}</p>
-              </>
-            ) : null}
-
-            {b.accessibility ? (
-              <>
-                <h3 className="mt-6 flex items-center gap-2 font-display text-xl text-gold">
-                  <Accessibility className="h-4 w-4" aria-hidden="true" /> Accessibility
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground">{b.accessibility}</p>
-              </>
-            ) : null}
 
             <ul className="mt-6 flex flex-wrap gap-2">
               {b.facilities.map((f) => (

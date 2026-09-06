@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SectionHeading } from "@/components/section-heading";
 import { branches, mapsEmbedUrl, telHref } from "@/data/branches";
-import { contactEmail, hoursDisclaimer } from "@/config/site";
+import { contactEmail } from "@/config/site";
 
 const title = "Contact | Aysu Turkish Restaurant, Harrow & Queensbury";
 const description =
-  "Contact Aysu Restaurant: telephone numbers, email address, branch addresses in Harrow and Queensbury, opening times and maps.";
+  "Contact Aysu Restaurant: telephone numbers, email address, branch addresses and maps for Harrow and Queensbury.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -90,15 +90,6 @@ function ContactPage() {
                 <a href={telHref(b.phone)} className="text-sm text-gold hover:underline">
                   {b.phone}
                 </a>
-                <dl className="mt-3 space-y-1 text-sm">
-                  {b.hours.map((h) => (
-                    <div key={h.day} className="flex justify-between gap-4 border-b border-border/60 py-1">
-                      <dt className="text-muted-foreground">{h.day}</dt>
-                      <dd>{h.time}</dd>
-                    </div>
-                  ))}
-                </dl>
-                <p className="mt-2 text-xs text-muted-foreground">{hoursDisclaimer}</p>
                 <iframe
                   title={`Map showing ${b.name}`}
                   src={mapsEmbedUrl(b.mapsQuery)}

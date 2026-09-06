@@ -10,8 +10,7 @@ export function SiteFooter() {
         <div>
           <span className="font-display text-3xl tracking-[0.35em] text-gold">AYSU</span>
           <p className="mt-4 max-w-xs text-sm text-forest-foreground/70">
-            Turkish-inspired dishes, grilled favourites, starters, sides and desserts in Queensbury
-            and Harrow.
+            Explore Aysu's menu, locations and restaurant information.
           </p>
           <p className="mt-4 flex items-center gap-2 text-sm text-forest-foreground/70">
             <Mail className="h-4 w-4 text-gold" aria-hidden="true" />
