@@ -7,9 +7,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const title = "FAQ | Aysu Turkish Restaurant, Harrow & Queensbury";
+const title = "FAQ | Aysu Turkish Restaurant, Harrow, Queensbury & Watford";
 const description =
-  "Contact information for common questions about Aysu Restaurant in Harrow and Queensbury.";
+  "Contact information for common questions about Aysu Restaurant in Harrow, Queensbury and Watford.";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({

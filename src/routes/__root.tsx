@@ -80,11 +80,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Aysu Restaurant | Turkish Restaurant in Harrow & Queensbury" },
+      { title: "Aysu Restaurant | Turkish Restaurant in Harrow, Queensbury & Watford" },
       {
         name: "description",
         content:
-          "Aysu is a Turkish restaurant and grill in Harrow and Queensbury, London. View the menu, find our locations and get directions.",
+          "Aysu is a Turkish restaurant and grill in Harrow, Queensbury and Watford, London. View the menu, find our locations and get directions.",
       },
       { name: "author", content: "Aysu Restaurant" },
       { property: "og:site_name", content: "Aysu Restaurant" },

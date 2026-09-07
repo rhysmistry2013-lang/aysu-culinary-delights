@@ -40,6 +40,18 @@ export const branches: Branch[] = [
     orderUrl: null,
     facilities: ["Dine-in", "Takeaway"],
   },
+  {
+    slug: "watford",
+    name: "Aysu — Watford",
+    shortName: "Watford",
+    addressLines: ["152–154 High Street", "Watford"],
+    postcode: "WD17 2EN",
+    phone: "01923 590230",
+    email: "info@aysu.uk",
+    mapsQuery: "Aysu, 152-154 High Street, Watford WD17 2EN",
+    orderUrl: null,
+    facilities: ["Dine-in", "Takeaway"],
+  },
 ];
 
 export const getBranch = (slug: string) => branches.find((b) => b.slug === slug);
