@@ -8,9 +8,9 @@ import dessert from "@/assets/dessert.jpg";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
-const title = "Gallery | Aysu Turkish Restaurant, Harrow & Queensbury";
+const title = "Gallery | Aysu Turkish Restaurant, Harrow, Queensbury & Watford";
 const description =
-  "Photographs of Aysu: grilled dishes, starters, desserts, drinks and our dining rooms in Harrow and Queensbury.";
+  "Photographs of Aysu: grilled dishes, starters, desserts, drinks and our dining rooms in Harrow, Queensbury and Watford.";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({

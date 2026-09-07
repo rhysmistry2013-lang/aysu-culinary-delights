@@ -12,9 +12,9 @@ import { BranchActionButton } from "@/components/branch-action";
 import { branches, mapsDirectionsUrl, mapsEmbedUrl, telHref } from "@/data/branches";
 import { gbp } from "@/lib/format";
 
-const title = "Aysu Restaurant | Turkish Restaurant in Harrow & Queensbury";
+const title = "Aysu Restaurant | Turkish Restaurant in Harrow, Queensbury & Watford";
 const description =
-  "Aysu is a Turkish restaurant and grill in Harrow and Queensbury. Kebabs, grills, starters, salads, sides and desserts. View the menu, find us or call to order.";
+  "Aysu is a Turkish restaurant and grill in Harrow, Queensbury and Watford. Kebabs, grills, starters, salads, sides and desserts. View the menu, find us or call to order.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -80,7 +80,7 @@ function Index() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Queensbury · Harrow
+            Queensbury · Harrow · Watford
           </motion.p>
           <motion.h1
             className="mt-6 text-4xl leading-[1.1] tracking-tight sm:text-6xl"
@@ -97,7 +97,7 @@ function Index() {
             transition={{ duration: 0.8, delay: 0.25 }}
           >
             A selection of Turkish-inspired dishes, grilled favourites, starters, sides and
-            desserts — served in Queensbury and Harrow.
+            desserts — served in Queensbury, Harrow and Watford.
           </motion.p>
           <motion.div
             className="mt-10 grid gap-3 sm:flex sm:flex-wrap sm:justify-center"
@@ -149,7 +149,7 @@ function Index() {
             />
             <dl className="mt-8 grid gap-6 sm:grid-cols-2">
               {[
-                ["Two restaurants", "Queensbury (HA8 5NN) and Harrow (HA3 8HU)."],
+                ["Three restaurants", "Queensbury (HA8 5NN), Harrow (HA3 8HU) and Watford (WD17 2EN)."],
                 ["Full menu online", "Browse every dish and price before you visit."],
                 ["Dine in or takeaway", "Eat with us or call your local branch to order."],
                 ["Groups welcome", "Space for families and larger tables — please call ahead."],

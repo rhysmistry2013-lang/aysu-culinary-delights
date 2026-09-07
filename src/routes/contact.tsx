@@ -3,9 +3,9 @@ import { SectionHeading } from "@/components/section-heading";
 import { branches, mapsEmbedUrl, telHref } from "@/data/branches";
 import { contactEmail } from "@/config/site";
 
-const title = "Contact | Aysu Turkish Restaurant, Harrow & Queensbury";
+const title = "Contact | Aysu Turkish Restaurant, Harrow, Queensbury & Watford";
 const description =
-  "Contact Aysu Restaurant: telephone numbers, email address, branch addresses and maps for Harrow and Queensbury.";
+  "Contact Aysu Restaurant: telephone numbers, email address, branch addresses and maps for Harrow, Queensbury and Watford.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

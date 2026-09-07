@@ -5,9 +5,9 @@ import { SectionHeading } from "@/components/section-heading";
 import { BranchActionButton } from "@/components/branch-action";
 import { branches, mapsDirectionsUrl, mapsEmbedUrl, telHref } from "@/data/branches";
 
-const title = "Locations | Aysu Turkish Restaurant in Queensbury & Harrow";
+const title = "Locations | Aysu Turkish Restaurant in Queensbury, Harrow & Watford";
 const description =
-  "Aysu restaurant addresses, phone numbers, maps and directions for our Queensbury (HA8 5NN) and Harrow (HA3 8HU) branches.";
+  "Aysu restaurant addresses, phone numbers, maps and directions for our Queensbury (HA8 5NN), Harrow (HA3 8HU) and Watford (WD17 2EN) branches.";
 
 export const Route = createFileRoute("/locations")({
   head: () => ({
@@ -28,7 +28,7 @@ function LocationsPage() {
       <SectionHeading
         eyebrow="Locations"
         title="Find your nearest Aysu restaurant."
-        intro="Addresses, telephone numbers and directions for Queensbury and Harrow."
+        intro="Addresses, telephone numbers and directions for Queensbury, Harrow and Watford."
       />
       <ul className="mt-14 grid gap-8 md:grid-cols-2">
         {branches.map((b, i) => (

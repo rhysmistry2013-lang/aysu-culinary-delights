@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { MenuBrowser } from "@/components/menu-browser";
 import { SectionHeading } from "@/components/section-heading";
 
-const title = "Menu & Prices | Aysu Turkish Restaurant, Harrow & Queensbury";
+const title = "Menu & Prices | Aysu Turkish Restaurant, Harrow, Queensbury & Watford";
 const description =
   "Browse the full Aysu menu with prices: cold and hot starters, kebabs and grills, special Turkish kebabs, seafood, stews, salads, burgers, sides, desserts and drinks.";
 
