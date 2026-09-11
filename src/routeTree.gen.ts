@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CookiesRouteImport } from './routes/cookies'
-import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as LocationsRouteImport } from './routes/locations'
 import { Route as MenuRouteImport } from './routes/menu'
@@ -33,11 +32,6 @@ const ContactRoute = ContactRouteImport.update({
 const CookiesRoute = CookiesRouteImport.update({
   id: '/cookies',
   path: '/cookies',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -75,7 +69,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
-  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/locations': typeof LocationsRoute
   '/menu': typeof MenuRoute
@@ -87,7 +80,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
-  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/locations': typeof LocationsRoute
   '/menu': typeof MenuRoute
@@ -100,7 +92,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
-  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/locations': typeof LocationsRoute
   '/menu': typeof MenuRoute
@@ -114,7 +105,6 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/cookies'
-    | '/faq'
     | '/gallery'
     | '/locations'
     | '/menu'
@@ -126,7 +116,6 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/cookies'
-    | '/faq'
     | '/gallery'
     | '/locations'
     | '/menu'
@@ -138,7 +127,6 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/cookies'
-    | '/faq'
     | '/gallery'
     | '/locations'
     | '/menu'
@@ -151,7 +139,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
-  FaqRoute: typeof FaqRoute
   GalleryRoute: typeof GalleryRoute
   LocationsRoute: typeof LocationsRoute
   MenuRoute: typeof MenuRoute
@@ -181,13 +168,6 @@ declare module '@tanstack/react-router' {
       path: '/cookies'
       fullPath: '/cookies'
       preLoaderRoute: typeof CookiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -239,7 +219,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
-  FaqRoute: FaqRoute,
   GalleryRoute: GalleryRoute,
   LocationsRoute: LocationsRoute,
   MenuRoute: MenuRoute,

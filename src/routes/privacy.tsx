@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SectionHeading } from "@/components/section-heading";
+import { contactEmail } from "@/config/site";
 
 const title = "Privacy Policy | Aysu Restaurant";
 const description = "How Aysu Restaurant collects, uses and protects your personal data.";
@@ -23,7 +24,13 @@ function Page() {
       <div className="mt-10 space-y-6 text-sm leading-relaxed text-muted-foreground">
         <p>We collect only the information needed to answer an enquiry your name, telephone number and email address.</p>
         <p>We do not sell your data. We share it only with service providers who help us operate the restaurant, such as payment and delivery partners.</p>
-        <p>You can ask us to correct or delete your data at any time by emailing info@aysu.uk.</p>
+        <p>
+          You can ask us to correct or delete your data at any time by emailing{" "}
+          <a href={`mailto:${contactEmail}`} className="text-gold hover:underline">
+            {contactEmail}
+          </a>
+          .
+        </p>
       </div>
     </div>
   );

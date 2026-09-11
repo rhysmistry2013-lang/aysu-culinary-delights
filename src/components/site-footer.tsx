@@ -63,7 +63,6 @@ export function SiteFooter() {
                 { to: "/menu", label: "Menu" },
                 { to: "/locations", label: "Locations" },
                 { to: "/gallery", label: "Gallery" },
-                { to: "/faq", label: "FAQ" },
                 { to: "/contact", label: "Contact" },
                 { to: "/privacy", label: "Privacy Policy" },
                 { to: "/cookies", label: "Cookie Policy" },

@@ -6,7 +6,7 @@
  */
 
 /** Public contact email shown across the site. */
-export const contactEmail = "info@aysu.uk";
+export const contactEmail = "info@aysurestaurants.co.uk";
 
 /**
  * Online booking URL (OpenTable, ResDiary, Quandoo, etc.).
