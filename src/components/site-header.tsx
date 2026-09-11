@@ -3,6 +3,8 @@ import { Menu as MenuIcon, X } from "lucide-react";
 import { useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { BranchActionButton } from "@/components/branch-action";
+import logoAsset from "@/assets/aysu-logo.png.asset.json";
+
 
 const links = [
   { to: "/menu", label: "Menu" },
