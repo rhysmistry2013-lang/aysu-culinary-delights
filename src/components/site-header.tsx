@@ -3,6 +3,8 @@ import { Menu as MenuIcon, X } from "lucide-react";
 import { useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { BranchActionButton } from "@/components/branch-action";
+import logoAsset from "@/assets/aysu-logo.png.asset.json";
+
 
 const links = [
   { to: "/menu", label: "Menu" },
@@ -25,6 +27,12 @@ export function SiteHeader() {
       </a>
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6 lg:grid-cols-[auto_minmax(0,1fr)_auto]">
         <Link to="/" className="flex min-w-0 items-center gap-3" aria-label="Aysu Restaurants home">
+          <img
+            src={logoAsset.url}
+            alt=""
+            className="h-9 w-9 rounded-full object-cover"
+            aria-hidden="true"
+          />
           <span className="font-display text-2xl tracking-[0.35em] text-gold">AYSU</span>
           <span className="hidden text-[10px] uppercase tracking-[0.28em] text-forest-foreground/60 sm:inline">
             Turkish Kitchen
